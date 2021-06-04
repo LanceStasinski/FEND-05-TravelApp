@@ -1,3 +1,6 @@
+//set endpoint
+travelData = []
+
 //get api keys
 const dotenv = require('dotenv')
 dotenv.config()
@@ -24,3 +27,10 @@ app.listen(3030, () => {
   console.log('Running on localhost: 3030')
 })
 
+
+//POST route
+app.post('/add', getData)
+
+const getData = async (req, res) => {
+
+}
