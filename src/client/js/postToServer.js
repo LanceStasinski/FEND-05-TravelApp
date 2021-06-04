@@ -1,5 +1,3 @@
-const { response } = require("express")
-
 const postToServer = async (data) => {
   await fetch('/add', {
     method: 'POST',
@@ -16,3 +14,5 @@ const postToServer = async (data) => {
     alert('Cannot reach local server')
   }
 }
+
+export { postToServer }

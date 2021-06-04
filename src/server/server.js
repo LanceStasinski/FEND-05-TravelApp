@@ -4,7 +4,7 @@ travelData = []
 //get api keys
 const dotenv = require('dotenv')
 dotenv.config()
-//const apiKey = process.env.API_KEY;
+const geoUser = process.env.GEO_USERNAME;
 
 //load dependencies
 const path = require('path')
@@ -33,9 +33,19 @@ const getData = async (req, res) => {
   console.log(req.body)
   const newEntry = {
     date: req.body.date,
-    location: req.body.location
+    location: req.body.destination
+  }
+  console.log(newEntry);
+  const response = await fetch(`http://api.geonames.org/geoCodeAddress?q=${newEntry.location}&username=${geoUser}`);
+  try {
+    const coords = await response.json();
+    console.log(coords)
+  } catch (error) {
+    console.log("error", error);
+    //alert('Error when finding coordinates')
   }
 }
+
 
 app.post('/add', getData)
 

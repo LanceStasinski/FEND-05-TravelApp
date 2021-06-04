@@ -12,7 +12,7 @@ module.exports = {
     libraryTarget: 'umd'
   },
   resolve: {
-    extentions: ['.js'],
+    extensions: ['.js'],
     modules: [path.resolve(__dirname, 'src')]
   },
   stats: 'verbose',

@@ -8,9 +8,10 @@ const addEntry = () => {
     destination: destination
   }
   postToServer(req)
-  .then()
 }
 
 
 const submit = document.getElementById('submit')
 submit.addEventListener('click', addEntry)
+
+export { addEntry }
