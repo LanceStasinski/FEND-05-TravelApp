@@ -29,8 +29,13 @@ app.listen(3030, () => {
 
 
 //POST route
+const getData = async (req, res) => {
+  console.log(req.body)
+  const newEntry = {
+    date: req.body.date,
+    location: req.body.location
+  }
+}
+
 app.post('/add', getData)
 
-const getData = async (req, res) => {
-
-}
