@@ -1,5 +1,3 @@
-import postToServer from './postToServer'
-
 const addEntry = () => {
   const date = document.getElementById('date').value
   const destination = document.getElementById('destination').value
@@ -7,7 +5,7 @@ const addEntry = () => {
     date: date,
     destination: destination
   }
-  postToServer(req)
+  Client.postToServer(req)
 }
 
 

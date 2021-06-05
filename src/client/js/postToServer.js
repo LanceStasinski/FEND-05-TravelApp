@@ -1,5 +1,5 @@
 const postToServer = async (data) => {
-  await fetch('/add', {
+  await fetch('http://localhost:3030/add', {
     method: 'POST',
     credentials: 'same-origin',
     headers: {'Content-Type': 'application/json'},

@@ -28,9 +28,11 @@ app.listen(3030, () => {
 })
 
 
-//POST route
+//get data from APIs
 const getData = async (req, res) => {
   console.log(req.body)
+}
+/*
   const newEntry = {
     date: req.body.date,
     location: req.body.destination
@@ -45,7 +47,7 @@ const getData = async (req, res) => {
     //alert('Error when finding coordinates')
   }
 }
-
-
+*/
+//POST route
 app.post('/add', getData)
 

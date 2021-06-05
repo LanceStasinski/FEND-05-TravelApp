@@ -1,15 +1,14 @@
-const path = require('path')
+const path  = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
-//const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/client/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    library: 'clientFunctions',
-    libraryTarget: 'umd'
+    filename: 'bundle.js',
+    library: 'Client',
+    libraryTarget: 'umd',
   },
   resolve: {
     extensions: ['.js'],
@@ -37,8 +36,7 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: './src/client/views/index.html',
-      filename: '.index.html'
+      filename: './index.html'
     }),
-   // new WorkboxPlugin.GenerateSW()
   ]
 }
