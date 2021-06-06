@@ -27,23 +27,13 @@ app.listen(3030, () => {
   console.log('Running on localhost: 3030')
 })
 
-
-//get data from APIs
-const getData = async (req, res) => {
-  console.log(req.body)
-
-  const newEntry = {
-    date: req.body.date,
-    location: req.body.destination
-  }
-  res.send('got it');
-  console.log(newEntry);
-
-  const response = await fetch(`http://api.geonames.org/searchJSON?q=${newEntry.location}&maxRows=1&username=${geoUser}`);
+//get lat/long of destination
+const getCoords = async (entry) => {
+  const response = await fetch(`http://api.geonames.org/searchJSON?q=${entry.location}&maxRows=1&username=${geoUser}`);
   try {
-    const coords = await response.json()
-    console.log(coords);
-
+    const location = await response.json()
+    console.log(location);
+    return(location)
     /*
     remember to notify user if town doesn't exist
     */
@@ -51,6 +41,18 @@ const getData = async (req, res) => {
     console.log("error", error);
   }
 }
+
+//get data from APIs
+const getData = async (req, res) => {
+  console.log(req.body)
+  const newEntry = {
+    date: req.body.date,
+    location: req.body.destination
+  }
+  console.log(newEntry);
+  const coords = getCoords(newEntry);
+}
+
 
 //POST route
 app.post('/add', getData)
