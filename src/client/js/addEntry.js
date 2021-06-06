@@ -1,8 +1,10 @@
 const addEntry = () => {
-  const date = document.getElementById('date').value
+  const departureDate = document.getElementById('departure-date').value
+  const arrivalDate = document.getElementById('arrival-date').value
   const destination = document.getElementById('destination').value
   const req = {
-    date: date,
+    arrival: arrivalDate,
+    depature: departureDate,
     destination: destination
   }
   Client.postToServer(req)

@@ -30,7 +30,7 @@ app.listen(3030, () => {
 
 //get lat/long of destination
 const getCoords = async (entry) => {
-  const response = await fetch(`http://api.geonames.org/searchJSON?q=${entry.location}&maxRows=1&username=${geoUser}`);
+  const response = await fetch(`http://api.geonames.org/searchJSON?q=${entry.body.destination}&maxRows=1&username=${geoUser}`);
   try {
     const location = await response.json()
     console.log(location);
@@ -43,15 +43,12 @@ const getCoords = async (entry) => {
   }
 }
 
+//const getWeather = async ()
+
 //get data from APIs
 const getData = async (req, res) => {
   console.log(req.body)
-  const newEntry = {
-    date: req.body.date,
-    location: req.body.destination
-  }
-  console.log(newEntry);
-  const coords = getCoords(newEntry);
+  const coords = getCoords(req);
 }
 
 
