@@ -31,23 +31,27 @@ app.listen(3030, () => {
 //get data from APIs
 const getData = async (req, res) => {
   console.log(req.body)
-}
-/*
+
   const newEntry = {
     date: req.body.date,
     location: req.body.destination
   }
+  res.send('got it');
   console.log(newEntry);
-  const response = await fetch(`http://api.geonames.org/geoCodeAddress?q=${newEntry.location}&username=${geoUser}`);
+
+  const response = await fetch(`http://api.geonames.org/searchJSON?q=${newEntry.location}&maxRows=1&username=${geoUser}`);
   try {
-    const coords = await response.json();
-    console.log(coords)
+    const coords = await response.json()
+    console.log(coords);
+
+    /*
+    remember to notify user if town doesn't exist
+    */
   } catch (error) {
     console.log("error", error);
-    //alert('Error when finding coordinates')
   }
 }
-*/
+
 //POST route
 app.post('/add', getData)
 
