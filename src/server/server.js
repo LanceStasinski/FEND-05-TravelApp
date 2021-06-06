@@ -43,12 +43,22 @@ const getCoords = async (entry) => {
   }
 }
 
-//const getWeather = async ()
+const getWeather = async (location, entry)  => {
+  const response = await fetch(`http://api.weatherbit.io/v2.0/history/daily?lat=${location.lat}&lon=${location.lng}&start_date=${entry.arrival}&end_date=${entry.departure}&key=${weatherKey}`);
+  try {
+    const weather = await response.json();
+    console.log(weather);
+    return(weather);
+  } catch (error) {
+    console.log("error", error);
+  }
+}
 
 //get data from APIs
 const getData = async (req, res) => {
-  console.log(req.body)
-  const coords = getCoords(req);
+  console.log(req.body);
+  const coords = await getCoords(req);
+  const weather = await getWeather(coords, req);
 }
 
 

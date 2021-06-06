@@ -4,7 +4,7 @@ const addEntry = () => {
   const destination = document.getElementById('destination').value
   const req = {
     arrival: arrivalDate,
-    depature: departureDate,
+    departure: departureDate,
     destination: destination
   }
   Client.postToServer(req)
