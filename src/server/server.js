@@ -5,6 +5,7 @@ travelData = []
 const dotenv = require('dotenv')
 dotenv.config()
 const geoUser = process.env.GEO_USERNAME;
+const weatherKey = process.env.WEATHER_KEY;
 
 //load dependencies
 const path = require('path')
