@@ -33,7 +33,6 @@ const getCoords = async (entry) => {
   const response = await fetch(`http://api.geonames.org/searchJSON?q=${entry.body.destination}&maxRows=1&username=${geoUser}`);
   try {
     const location = await response.json()
-    console.log(location);
     return(location)
     /*
     remember to notify user if town doesn't exist
@@ -43,11 +42,10 @@ const getCoords = async (entry) => {
   }
 }
 
-const getWeather = async (location, entry)  => {
-  const response = await fetch(`http://api.weatherbit.io/v2.0/history/daily?lat=${location.lat}&lon=${location.lng}&start_date=${entry.arrival}&end_date=${entry.departure}&key=${weatherKey}`);
+const getWeather = async (coords, req)  => {
+  const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&start_date=2021-06-29&key=${weatherKey}`);
   try {
     const weather = await response.json();
-    console.log(weather);
     return(weather);
   } catch (error) {
     console.log("error", error);
@@ -58,7 +56,9 @@ const getWeather = async (location, entry)  => {
 const getData = async (req, res) => {
   console.log(req.body);
   const coords = await getCoords(req);
+  console.log(coords);
   const weather = await getWeather(coords, req);
+  console.log(weather.data);
 }
 
 
