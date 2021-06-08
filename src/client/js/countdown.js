@@ -1,0 +1,1 @@
+//count days away from current date, make sure departure date is after arrival, make sure date chosen in today or later (not in the past)

@@ -12,7 +12,8 @@ const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
+const { prefetch } = require('webpack');
 
 //start instance and initialize dependencies
 const app = express()
@@ -42,8 +43,8 @@ const getCoords = async (entry) => {
   }
 }
 
-const getWeather = async (coords, req)  => {
-  const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&start_date=2021-06-29&key=${weatherKey}`);
+const getWeatherCurrent = async (coords, req)  => {
+  const response = await fetch(`https://api.weatherbit.io/v2.0/current?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&key=${weatherKey}`);
   try {
     const weather = await response.json();
     return(weather);
@@ -52,12 +53,24 @@ const getWeather = async (coords, req)  => {
   }
 }
 
+const getWeatherForcast = async (coords, req)  => {
+  const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&key=${weatherKey}`);
+  try {
+    const weather = await response.json();
+    return(weather);
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
+
+
 //get data from APIs
 const getData = async (req, res) => {
   console.log(req.body);
   const coords = await getCoords(req);
   console.log(coords);
-  const weather = await getWeather(coords, req);
+  const weather = await getWeatherCurrent();
   console.log(weather.data);
 }
 
