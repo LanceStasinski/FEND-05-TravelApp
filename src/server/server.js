@@ -68,10 +68,19 @@ const getWeatherForcast = async (coords, req)  => {
 //get data from APIs
 const getData = async (req, res) => {
   console.log(req.body);
-  const coords = await getCoords(req);
+  let coords = "";
+  let weather = "";
+  if (req.body.daysAway > 16) {
+    weather = 'Trip too far in advance to forecast weather'
+  } else if (req.body.daysAway <= 7) {
+    coords = await getCoords(req);
+    weather = await getWeatherCurrent(coords);
+  } else if (req.body.daysAway > 7 && req.body.daysAway <= 16) {
+    coords = await getCoords(req);
+    weather = await getWeatherForcast(coords);
+  }
   console.log(coords);
-  const weather = await getWeatherCurrent(coords);
-  console.log(weather.data);
+  console.log(weather);
 }
 
 

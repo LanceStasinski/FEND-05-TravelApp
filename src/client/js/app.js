@@ -1,7 +1,6 @@
 const addEntry = () => {
   const departureDate = document.getElementById('departure-date').value;
   const arrivalDate = document.getElementById('arrival-date').value;
-  console.log(arrivalDate)
   const destination = document.getElementById('destination').value;
   const days = Client.countdown(arrivalDate);
 
