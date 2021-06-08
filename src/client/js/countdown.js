@@ -1,8 +1,9 @@
 //count days away from current date, make sure departure date is after arrival, make sure date chosen in today or later (not in the past)
 
-const countdown = (start, end) => {
-  //get today's date function found at https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
-  const today = new Date().toJSON().slice(0,10);
+const countdown = (startDate, endDate) => {
+  const today = new Date();
+  const start = new Date(startDate);
+  const end = new Date(endDate);
   if (start < today) {
     alert('Please choose a future arrival date')
   } else if (end < today) {

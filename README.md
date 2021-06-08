@@ -4,5 +4,4 @@
 
 ## Resources
 
-[StackOverflow](https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript) - get today's date function.
 [geeksforgeeks](https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/) -  determine number of days between two dates function.
