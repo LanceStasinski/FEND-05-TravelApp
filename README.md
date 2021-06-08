@@ -5,3 +5,4 @@
 ## Resources
 
 [geeksforgeeks](https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/) -  determine number of days between two dates function.
+[dev](https://dev.to/bgord/simplify-repetitive-jest-test-cases-with-test-each-310m) - test.each procedure.

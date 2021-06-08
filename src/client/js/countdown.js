@@ -6,8 +6,6 @@ const countdown = (startDate, endDate) => {
   const end = new Date(endDate);
   if (start < today) {
     alert('Please choose a future arrival date')
-  } else if (end < today) {
-    alert('Please choose a future departure date')
   } else if (end < start) {
     alert('Please choose a departure date that occurs after the arrival date')
   } else {

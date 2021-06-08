@@ -5,9 +5,6 @@ const countdown = (startDate, endDate) => {
   if (start < today) {
     let alert = 'Please choose a future arrival date';
     return alert
-  } else if (end < today) {
-    let alert = 'Please choose a future departure date';
-    return alert
   } else if (end < start) {
     let alert = 'Please choose a departure date that occurs after the arrival date';
     return alert
@@ -18,8 +15,19 @@ const countdown = (startDate, endDate) => {
   }
 }
 
+//test.each procedure found at https://dev.to/bgord/simplify-repetitive-jest-test-cases-with-test-each-310m
+const cases = [
+  ['2021-06-10', '2025-06-03', 2],
+  ['2021-06-01', '2025-06-03', 'Please choose a future arrival date'],
+  ['2021-06-10', '2021-06-07', 'Please choose a departure date that occurs after the arrival date'],
+]
+
 describe('Count days between two dates', () => {
-  test('it should be 2', () => {
-    expect(countdown('2021-06-10', '2025-06-03')).toBe(2);
-  })
+  test.each(cases)(
+    'given startDate as %p and endDate %p, return %p',
+    (first, second, expectedResult) => {
+      const result = countdown(first, second);
+      expect(result).toBe(expectedResult);
+    }
+  )
 })
