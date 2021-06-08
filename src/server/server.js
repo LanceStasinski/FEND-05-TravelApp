@@ -70,7 +70,7 @@ const getData = async (req, res) => {
   console.log(req.body);
   const coords = await getCoords(req);
   console.log(coords);
-  const weather = await getWeatherCurrent();
+  const weather = await getWeatherCurrent(coords);
   console.log(weather.data);
 }
 
