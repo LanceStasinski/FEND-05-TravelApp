@@ -44,7 +44,7 @@ const getCoords = async (entry) => {
 }
 
 const getWeatherCurrent = async (coords, req)  => {
-  const response = await fetch(`https://api.weatherbit.io/v2.0/current?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&key=${weatherKey}`);
+  const response = await fetch(`https://api.weatherbit.io/v2.0/current?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&units=I&key=${weatherKey}`);
   try {
     const weather = await response.json();
     return(weather);
@@ -54,7 +54,7 @@ const getWeatherCurrent = async (coords, req)  => {
 }
 
 const getWeatherForcast = async (coords, req)  => {
-  const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&key=${weatherKey}`);
+  const response = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&units=I&key=${weatherKey}`);
   try {
     const weather = await response.json();
     return(weather);
@@ -75,12 +75,19 @@ const getData = async (req, res) => {
   } else if (req.body.daysAway <= 7) {
     coords = await getCoords(req);
     weather = await getWeatherCurrent(coords);
+    const tripWeather = {
+      temp: weather.data[0].temp,
+      sky: weather.data[0].weather.description,
+      icon: weather.data[0].weather.icon
+    };
+    travelData.push(tripWeather);
+    console.log(travelData);
   } else if (req.body.daysAway > 7 && req.body.daysAway <= 16) {
     coords = await getCoords(req);
     weather = await getWeatherForcast(coords);
   }
   console.log(coords);
-  console.log(weather);
+  console.log(weather.data[0].weather);
 }
 
 
