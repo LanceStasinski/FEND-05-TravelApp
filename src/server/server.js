@@ -64,8 +64,8 @@ const getWeatherForcast = async (coords, req)  => {
   }
 }
 
-const getImage = async (coords) => {
-  const response = await fetch(`https://pixabay.com/api/?key=${imageKey}&q=${coords.geonames[0].name}+${coords.geonames[0].adminName1}&image_type=photo&orientation=horizontal&category=backgrounds&safesearch=true`);
+const getImageCity = async (coords) => {
+  const response = await fetch(`https://pixabay.com/api/?key=${imageKey}&q=${coords.geonames[0].name}+${coords.geonames[0].adminName1}&image_type=photo&orientation=horizontal&category=places&safesearch=true`);
   try {
     const imageInfo = await response.json();
     return imageInfo;
@@ -74,11 +74,49 @@ const getImage = async (coords) => {
   }
 }
 
+const getImageState = async (coords) => {
+  const response = await fetch(`https://pixabay.com/api/?key=${imageKey}&q=${coords.geonames[0].adminName1}&image_type=photo&orientation=horizontal&category=places&safesearch=true`);
+  try {
+    const imageInfo = await response.json();
+    return imageInfo;
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
+const getImageCountry = async (coords) => {
+  const response = await fetch(`https://pixabay.com/api/?key=${imageKey}&q=${coords.geonames[0].countryName}&image_type=photo&orientation=horizontal&category=places&safesearch=true`);
+  try {
+    const imageInfo = await response.json();
+    return imageInfo;
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
+//If image of the city is not available, get an image of the state. If an image of the state is not available, get an image of the country.
+const getImage = async (coords) => {
+  const city = await getImageCity(coords);
+  let image = '';
+  if (city.total == 0) {
+    const state = await getImageState(coords);
+    if (state.total == 0 && city.total == 0) {
+      const country = await getImageCountry(coords);
+      image = country;
+    } else {
+      image = state;
+    }
+  } else {
+    image = city;
+  }
+  return image;
+}
 
 //get data from APIs
 const getData = async (req, res) => {
   console.log(req.body);
   const coords = await getCoords(req);
+  console.log(coords);
   let trip = [];
   let weather = '';
   let tripWeather = [];
@@ -110,9 +148,9 @@ const getData = async (req, res) => {
     }
   }
   trip.push(tripWeather);
-  console.log(trip);
   const image = await getImage(coords);
-  console.log(image);
+  trip.push(image.hits[0].webformatURL);
+  console.log(trip);
 }
 
 
