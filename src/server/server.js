@@ -64,6 +64,40 @@ const getWeatherForcast = async (coords, req)  => {
   }
 }
 
+const getWeather = async (coords, req) => {
+  let weather = '';
+  let tripWeather = [];
+  if (req.body.daysAway > 16) {
+    weather = 'No forecast';
+    tripWeather.push(weather);
+  } else if (req.body.daysAway < 8) {
+    weather = await getWeatherCurrent(coords);
+    console.log(weather);
+    let day = {
+      date: weather.data[0].datetime,
+      temp: weather.data[0].temp,
+      sky: weather.data[0].weather.description,
+      icon: weather.data[0].weather.icon
+    };
+    tripWeather.push(day);
+  } else if (req.body.daysAway > 7 && req.body.daysAway <= 16) {
+    console.log(coords);
+    weather = await getWeatherForcast(coords);
+    let weatherData = weather.data;
+    let tripWeather = [];
+    for (const data of weatherData) {
+      let day = {
+        date: data.datetime,
+        temp: data.temp,
+        sky: data.weather.description,
+        icon: data.weather.icon
+      };
+      tripWeather.push(day);
+    }
+  }
+  return tripWeather;
+}
+
 const getImageCity = async (coords) => {
   const response = await fetch(`https://pixabay.com/api/?key=${imageKey}&q=${coords.geonames[0].name}+${coords.geonames[0].adminName1}&image_type=photo&orientation=horizontal&category=places&safesearch=true`);
   try {
@@ -118,35 +152,7 @@ const getData = async (req, res) => {
   const coords = await getCoords(req);
   console.log(coords);
   let trip = [];
-  let weather = '';
-  let tripWeather = [];
-  if (req.body.daysAway > 16) {
-    weather = 'No forecast';
-    tripWeather.push(weather);
-  } else if (req.body.daysAway < 8) {
-    weather = await getWeatherCurrent(coords);
-    let day = {
-      date: weather.data[0].datetime,
-      temp: weather.data[0].temp,
-      sky: weather.data[0].weather.description,
-      icon: weather.data[0].weather.icon
-    };
-    tripWeather.push(day);
-  } else if (req.body.daysAway > 7 && req.body.daysAway <= 16) {
-    console.log(coords);
-    weather = await getWeatherForcast(coords);
-    let weatherData = weather.data;
-    let tripWeather = [];
-    for (const data of weatherData) {
-      let day = {
-        date: data.datetime,
-        temp: data.temp,
-        sky: data.weather.description,
-        icon: data.weather.icon
-      };
-      tripWeather.push(day);
-    }
-  }
+  const tripWeather = await getWeather(coords, req);
   trip.push(tripWeather);
   const image = await getImage(coords);
   trip.push(image.hits[0].webformatURL);
