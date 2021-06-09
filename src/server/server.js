@@ -132,6 +132,7 @@ const getImageCountry = async (coords) => {
 const getImage = async (coords) => {
   const city = await getImageCity(coords);
   let image = '';
+  let imageData = [];
   if (city.total == 0) {
     const state = await getImageState(coords);
     if (state.total == 0 && city.total == 0) {
@@ -143,7 +144,9 @@ const getImage = async (coords) => {
   } else {
     image = city;
   }
-  return image;
+  imageData.push(image.hits[0].tags);
+  imageData.push(image.hits[0].webformatURL);
+  return imageData;
 }
 
 //get data from APIs
@@ -155,7 +158,7 @@ const getData = async (req, res) => {
   const tripWeather = await getWeather(coords, req);
   trip.push(tripWeather);
   const image = await getImage(coords);
-  trip.push(image.hits[0].webformatURL);
+  trip.push(image);
   console.log(trip);
 }
 
