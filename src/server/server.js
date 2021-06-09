@@ -6,6 +6,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 const geoUser = process.env.GEO_USERNAME;
 const weatherKey = process.env.WEATHER_KEY;
+const imageKey = process.env.PIXABAY_KEY;
 
 //load dependencies
 const path = require('path')
@@ -63,19 +64,29 @@ const getWeatherForcast = async (coords, req)  => {
   }
 }
 
+const getImage = async (coords) => {
+  const response = await fetch(`https://pixabay.com/api/?key=${imageKey}&q=${coords.geonames[0].name}+${coords.geonames[0].adminName1}&image_type=photo&orientation=horizontal&category=backgrounds&safesearch=true`);
+  try {
+    const imageInfo = await response.json();
+    return imageInfo;
+  } catch (error) {
+    console.log("error", error);
+  }
+}
 
 
 //get data from APIs
 const getData = async (req, res) => {
   console.log(req.body);
-  let coords = "";
-  let weather = "";
+  const coords = await getCoords(req);
+  let trip = [];
+  let weather = '';
+  let tripWeather = [];
   if (req.body.daysAway > 16) {
-    weather = 'Trip too far in advance to forecast weather'
+    weather = 'No forecast';
+    tripWeather.push(weather);
   } else if (req.body.daysAway < 8) {
-    coords = await getCoords(req);
     weather = await getWeatherCurrent(coords);
-    let tripWeather = [];
     let day = {
       date: weather.data[0].datetime,
       temp: weather.data[0].temp,
@@ -83,10 +94,7 @@ const getData = async (req, res) => {
       icon: weather.data[0].weather.icon
     };
     tripWeather.push(day);
-    travelData.push(tripWeather);
-    console.log(travelData);
   } else if (req.body.daysAway > 7 && req.body.daysAway <= 16) {
-    coords = await getCoords(req);
     console.log(coords);
     weather = await getWeatherForcast(coords);
     let weatherData = weather.data;
@@ -100,9 +108,11 @@ const getData = async (req, res) => {
       };
       tripWeather.push(day);
     }
-    travelData.push(tripWeather);
-    console.log(travelData)
   }
+  trip.push(tripWeather);
+  console.log(trip);
+  const image = await getImage(coords);
+  console.log(image);
 }
 
 
