@@ -72,22 +72,37 @@ const getData = async (req, res) => {
   let weather = "";
   if (req.body.daysAway > 16) {
     weather = 'Trip too far in advance to forecast weather'
-  } else if (req.body.daysAway <= 7) {
+  } else if (req.body.daysAway < 8) {
     coords = await getCoords(req);
     weather = await getWeatherCurrent(coords);
-    const tripWeather = {
+    let tripWeather = [];
+    let day = {
+      date: weather.data[0].datetime,
       temp: weather.data[0].temp,
       sky: weather.data[0].weather.description,
       icon: weather.data[0].weather.icon
     };
+    tripWeather.push(day);
     travelData.push(tripWeather);
     console.log(travelData);
   } else if (req.body.daysAway > 7 && req.body.daysAway <= 16) {
     coords = await getCoords(req);
+    console.log(coords);
     weather = await getWeatherForcast(coords);
+    let weatherData = weather.data;
+    let tripWeather = [];
+    for (const data of weatherData) {
+      let day = {
+        date: data.datetime,
+        temp: data.temp,
+        sky: data.weather.description,
+        icon: data.weather.icon
+      };
+      tripWeather.push(day);
+    }
+    travelData.push(tripWeather);
+    console.log(travelData)
   }
-  console.log(coords);
-  console.log(weather.data[0].weather);
 }
 
 
