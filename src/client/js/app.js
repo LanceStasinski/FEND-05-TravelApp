@@ -16,6 +16,7 @@ const addEntry = () => {
       daysAway: days
     };
     Client.postToServer(req)
+    .then(Client.getData())
   }
 }
 

@@ -41,8 +41,13 @@ const getData = async (req, res) => {
   const image = await getImage(coords);
   trip.push(image);
   console.log(trip);
+  travelData.push(trip);
 }
 
 //POST route
 app.post('/add', getData)
 
+//GET route
+app.get('/all', (req, res) => {
+  res.send(travelData);
+})
