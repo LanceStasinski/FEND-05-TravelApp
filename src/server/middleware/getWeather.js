@@ -38,10 +38,9 @@ const getWeather = async (coords, req) => {
     };
     tripWeather.push(day);
   } else if (req.body.daysAway > 7 && req.body.daysAway <= 16) {
-    console.log(coords);
     weather = await getWeatherForcast(coords);
+    console.log(weather);
     let weatherData = weather.data;
-    let tripWeather = [];
     for (const data of weatherData) {
       let day = {
         date: data.datetime,

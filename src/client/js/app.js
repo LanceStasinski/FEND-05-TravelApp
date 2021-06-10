@@ -1,4 +1,4 @@
-const addEntry = () => {
+const addEntry = async () => {
   const departureDate = document.getElementById('departure-date').value;
   const arrivalDate = document.getElementById('arrival-date').value;
   const destination = document.getElementById('destination').value;
