@@ -26,6 +26,7 @@ app.listen(3030, () => {
   console.log('Running on localhost: 3030')
 })
 
+//require middleware functions
 const { getCoords } = require('./middleware/getCoords');
 const { getWeather } = require('./middleware/getWeather');
 const { getImage } = require('./middleware/getImage');
@@ -40,8 +41,7 @@ const getData = async (req, res) => {
   trip.push(tripWeather);
   const image = await getImage(coords);
   trip.push(image);
-  console.log(trip);
-  travelData.push(trip);
+  res.send(trip)
 }
 
 //POST route

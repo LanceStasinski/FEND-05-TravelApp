@@ -14,9 +14,8 @@ const addEntry = async () => {
       departure: departureDate,
       destination: destination,
       daysAway: days
-    };
-    Client.postToServer(req)
-    .then(Client.getData())
+    }
+    Client.postToServer(req);
   }
 }
 
