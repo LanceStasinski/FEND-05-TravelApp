@@ -35,7 +35,10 @@ const getImageCountry = async (coords) => {
 const getImage = async (coords) => {
   const city = await getImageCity(coords);
   let image = '';
+  image = city; //
   let imageData = [];
+  imageData.push[city]; //
+  /*
   if (city.total == 0) {
     const state = await getImageState(coords);
     if (state.total == 0 && city.total == 0) {
@@ -49,6 +52,7 @@ const getImage = async (coords) => {
   }
   imageData.push(image.hits[0].tags);
   imageData.push(image.hits[0].webformatURL);
+  */
   return imageData;
 }
 
