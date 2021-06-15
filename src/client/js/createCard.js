@@ -5,6 +5,6 @@ const createCard = (data) => {
 
   const header = document.createElement('header');
   const title = document.createElement('h2');
-  title.innerHTML = `Trip to:`
+  title.innerHTML = `Trip to: ${data}`
 
 }

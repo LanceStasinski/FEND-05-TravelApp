@@ -33,15 +33,17 @@ const { getImage } = require('./helpers/getImage');
 //get data from APIs
 const getData = async (req, res) => {
   console.log(req.body);
-  let trip = [];
-  trip.push(req.body.daysAway);
-  trip.push(req.body.destination);
   const coords = await getCoords(req, geoUser);
   console.log(coords);
   const tripWeather = await getWeather(coords, req, weatherKey);
-  trip.push(tripWeather);
   const image = await getImage(coords, imageKey);
-  trip.push(image);
+  const trip = {
+    daysAway: req.body.daysAway,
+    destination: req.body.destination,
+    weather: tripWeather,
+    imageURL: image[1],
+    imageTag: image[0]
+  }
   console.log(trip);
   res.send(trip)
 }
