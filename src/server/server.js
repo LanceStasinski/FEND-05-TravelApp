@@ -4,6 +4,8 @@ travelData = []
 //load dotenv to get api keys
 const dotenv = require('dotenv')
 dotenv.config()
+const imageKey = process.env.PIXABAY_KEY;
+
 
 //load dependencies
 const path = require('path')
@@ -29,7 +31,7 @@ app.listen(3030, () => {
 //require middleware functions
 const { getCoords } = require('./middleware/getCoords');
 const { getWeather } = require('./middleware/getWeather');
-const { getImage } = require('./middleware/getImage');
+const { getImage } = require('./helpers/getImage');
 
 //get data from APIs
 const getData = async (req, res) => {
@@ -40,7 +42,7 @@ const getData = async (req, res) => {
   console.log(coords);
   const tripWeather = await getWeather(coords, req);
   trip.push(tripWeather);
-  const image = await getImage(coords);
+  const image = await getImage(coords, imageKey);
   trip.push(image);
   res.send(trip)
 }
