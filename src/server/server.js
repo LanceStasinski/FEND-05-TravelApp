@@ -38,6 +38,8 @@ const getData = async (req, res) => {
   const tripWeather = await getWeather(coords, req, weatherKey);
   const image = await getImage(coords, imageKey);
   const trip = {
+    arrival: req.body.arrival,
+    departure: req.body.departure,
     daysAway: req.body.daysAway,
     destination: req.body.destination,
     weather: tripWeather,
