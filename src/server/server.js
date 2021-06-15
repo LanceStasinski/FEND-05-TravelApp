@@ -1,6 +1,3 @@
-//set endpoint
-travelData = []
-
 //load dotenv to get api keys
 const dotenv = require('dotenv')
 dotenv.config();
@@ -13,7 +10,6 @@ const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const fetch = require('node-fetch');
 
 //start instance and initialize dependencies
 const app = express()
@@ -39,19 +35,16 @@ const getData = async (req, res) => {
   console.log(req.body);
   let trip = [];
   trip.push(req.body.daysAway);
+  trip.push(req.body.destination);
   const coords = await getCoords(req, geoUser);
   console.log(coords);
   const tripWeather = await getWeather(coords, req, weatherKey);
   trip.push(tripWeather);
   const image = await getImage(coords, imageKey);
   trip.push(image);
+  console.log(trip);
   res.send(trip)
 }
 
 //POST route
 app.post('/add', getData)
-
-//GET route
-app.get('/all', (req, res) => {
-  res.send(travelData);
-})
