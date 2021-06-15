@@ -34,9 +34,10 @@ const { getImage } = require('./middleware/getImage');
 //get data from APIs
 const getData = async (req, res) => {
   console.log(req.body);
+  let trip = [];
+  trip.push(req.body.daysAway);
   const coords = await getCoords(req);
   console.log(coords);
-  let trip = [];
   const tripWeather = await getWeather(coords, req);
   trip.push(tripWeather);
   const image = await getImage(coords);
