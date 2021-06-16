@@ -29,6 +29,7 @@ app.listen(3030, () => {
 const { getCoords } = require('./middleware/getCoords');
 const { getWeather } = require('./helpers/getWeather');
 const { getImage } = require('./helpers/getImage');
+const { getCountryInfo } = require('./middleware/getCountryInfo');
 
 //get data from APIs
 const getData = async (req, res) => {
@@ -37,6 +38,8 @@ const getData = async (req, res) => {
   console.log(coords);
   const tripWeather = await getWeather(coords, req, weatherKey);
   const image = await getImage(coords, imageKey);
+  const countryInfo = await getCountryInfo(coords);
+  //console.log(countryInfo);
   const trip = {
     arrival: req.body.arrival,
     departure: req.body.departure,
@@ -44,7 +47,12 @@ const getData = async (req, res) => {
     destination: req.body.destination,
     weather: tripWeather,
     imageURL: image[1],
-    imageTag: image[0]
+    imageTag: image[0],
+    countryName: countryInfo.name,
+    capital: countryInfo.capital,
+    currency: countryInfo.currencies[0].name,
+    flag: countryInfo.flag,
+    language: countryInfo.languages[0].name
   }
   console.log(trip);
   res.send(trip)
