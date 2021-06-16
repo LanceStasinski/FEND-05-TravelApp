@@ -3,6 +3,7 @@ const { getImageNotUSA } = require('./getImageNotUSA');
 
 const getImage = async (coords, key) => {
   let imageArray = '';
+
   if (coords.geonames[0].countryCode == 'US') {
     imageArray = await getImageUSA(coords, key)
   } else {

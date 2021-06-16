@@ -1,13 +1,14 @@
-const { getImageCity } = require('../middleware/getImageCity');
-const { getImageCountry } = require('../middleware/getImageCountry');
+const { getImageRoute } =  require('../middleware/getImageRoute');
 
 //If image of the city is not available, get an image of the country.
 const getImageNotUSA = async (coords, key) => {
-  const city = await getImageCity(coords, key);
+  let locationParameters = `${coords.geonames[0].name}+${coords.geonames[0].countryName}`
+  const city = await getImageRoute(key, locationParameters);
   let image = '';
   let imageData = [];
   if (city.total == 0) {
-    const country = await getImageCountry(coords, key);
+    locationParameters = `${coords.geonames[0].countryName}`
+    const country = await getImageRoute(key, locationParameters);
     image = country;
   } else {
     image = city;
