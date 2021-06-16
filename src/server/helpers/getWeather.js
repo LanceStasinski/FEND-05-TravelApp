@@ -1,5 +1,4 @@
-const { getWeatherCurrent } = require('../middleware/getWeatherCurrent');
-const { getWeatherForcast } = require('../middleware/getWeatherForecast');
+const { getWeatherRoute } = require('../middleware/getWeatherRoute')
 
 const getWeather = async (coords, req, key) => {
   let weather = '';
@@ -8,7 +7,8 @@ const getWeather = async (coords, req, key) => {
     weather = 'No forecast';
     tripWeather.push(weather);
   } else if (req.body.daysAway < 8) {
-    weather = await getWeatherCurrent(coords, key);
+    let forecastType = `current`;
+    weather = await getWeatherRoute(coords, key, forecastType);
     let day = {
       date: weather.data[0].datetime,
       temp: weather.data[0].temp,
@@ -17,7 +17,8 @@ const getWeather = async (coords, req, key) => {
     };
     tripWeather.push(day);
   } else if (req.body.daysAway > 7 && req.body.daysAway <= 16) {
-    weather = await getWeatherForcast(coords, key);
+    let forecastType = `forecast/daily`;
+    weather = await getWeatherRoute(coords, key, forecastType);
     let weatherData = weather.data;
     for (const data of weatherData) {
       let day = {
