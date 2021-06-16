@@ -6,6 +6,8 @@ const createCard = (data) => {
   const header = document.createElement('header');
   const title = document.createElement('h2');
   title.innerHTML = data.destination;
-  header.appendChild(title)
+  header.appendChild(title);
+  const daysAway = document.createElement('h3');
+  daysAway.innerHTML = `${data.daysAway} Days Away`;
 
 }
