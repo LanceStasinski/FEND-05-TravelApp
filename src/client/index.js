@@ -4,6 +4,7 @@ import { countdown } from './js/countdown'
 import { getData } from './js/getData'
 import { createCard } from './js/createCard'
 import { convertDate } from './js/convertDate'
+import { displayDayOrDays } from './js/displayDayOrDays'
 
 export {
   addEntry,
@@ -11,5 +12,6 @@ export {
   countdown,
   getData,
   createCard,
-  convertDate
+  convertDate,
+  displayDayOrDays
 }
