@@ -1,13 +1,8 @@
 const displayDayOrDays = (data) => {
-  let string = '';
-  if (data.daysAway == 1) {
-    string  = `1 Day Away`;
-  } else if (data.daysAway == 0){
-    string = `The trip starts today!`;
-  } else {
-    string = `${data.daysAway} Days Away`
-  }
-  return string
+  let string = (data.daysAway == 1) ? `1 Day Away`
+    : (data.daysAway == 0) ? `The trip starts today!`
+    : `${data.daysAway} Days Away`;
+    return string
 }
 
 export { displayDayOrDays }

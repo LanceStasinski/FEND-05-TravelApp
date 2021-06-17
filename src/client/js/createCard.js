@@ -8,7 +8,7 @@ const createCard = (data) => {
   title.innerHTML = data.destination;
   header.appendChild(title);
   const daysAway = document.createElement('h3');
-  daysAway.innerHTML = ;
+  daysAway.innerHTML = Client.displayDayOrDays(data);
   header.appendChild(daysAway);
   const dates = document.createElement('h3');
   const arrival = Client.convertDate(data.arrival);
