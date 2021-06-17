@@ -9,10 +9,11 @@ const createCard = (data) => {
   header.appendChild(title);
   const daysAway = document.createElement('h3');
   daysAway.innerHTML = `${data.daysAway} Days Away`;
+  header.appendChild(daysAway);
   const dates = document.createElement('h3');
-  //const arrival = data.arrival.toLocaleDateString("en-US", {timeZone: 'UTC'});
-  //const departure = data.departure.toLocaleDateString("en-US", {timeZone: 'UTC'});
-  dates.innerHTML = `${data.arrival} - ${data.departure}`;
+  const arrival = Client.convertDate(data.arrival);
+  const departure = Client.convertDate(data.departure);
+  dates.innerHTML = `${arrival} - ${departure}`;
   header.appendChild(dates);
   card.appendChild(header)
 
