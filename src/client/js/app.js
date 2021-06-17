@@ -19,7 +19,7 @@ const addEntry = async () => {
   }
 }
 
-const submit = document.getElementById('submit')
-submit.addEventListener('click', addEntry)
+const submit = document.getElementById('submit');
+submit.addEventListener('click', addEntry);
 
 export { addEntry }
