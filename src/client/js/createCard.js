@@ -1,5 +1,5 @@
 const createCard = (data) => {
-  const frag = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
   const card = document.createElement('div');
   card.classList('card');
 
@@ -9,5 +9,10 @@ const createCard = (data) => {
   header.appendChild(title);
   const daysAway = document.createElement('h3');
   daysAway.innerHTML = `${data.daysAway} Days Away`;
-
+  const dates = document.createElement('h3');
+  const arrival = data.arrival.toLocaleDateString("en-US", {timeZone: 'UTC'});
+  const departure = data.departure.toLocaleDateString("en-US", {timeZone: 'UTC'});
+  dates.innerHTML = `${arrival} - ${departure}`;
+  header.appendChild(dates);
+  card.append(header)
 }
