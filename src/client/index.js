@@ -6,6 +6,10 @@ import { createCard } from './js/createCard'
 import { convertDate } from './js/convertDate'
 import { displayDayOrDays } from './js/displayDayOrDays'
 import { createCurrentWeatherDiv } from './js/createCurrentWeatherDiv'
+import { createForecastWeatherDiv } from './js/createForecastWeatherDiv'
+import { createWeatherDiv } from './js/createWeatherDiv'
+import { shortenDate } from './js/shortenDate'
+
 
 export {
   addEntry,
@@ -15,5 +19,8 @@ export {
   createCard,
   convertDate,
   displayDayOrDays,
-  createCurrentWeatherDiv
+  createCurrentWeatherDiv,
+  createForecastWeatherDiv,
+  createWeatherDiv,
+  shortenDate
 }

@@ -20,8 +20,11 @@ const createCard = (data) => {
   const cityImg = document.createElement('img');
   cityImg.src = data.imageURL;
   cityImg.alt = data.imageTag;
-  card.appendChild(cityImg)
+  card.appendChild(cityImg);
 
+  //const ar = Client.createForecastWeatherDiv(data);
+  //console.log(ar)
+  card.appendChild(Client.createWeatherDiv(data));
 
   fragment.append(card);
   const entries = document.getElementById('entries');

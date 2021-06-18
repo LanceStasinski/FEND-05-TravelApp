@@ -18,7 +18,7 @@ const createCurrentWeatherDiv = (data) => {
   weatherBox.appendChild(sky);
 
   const icon = document.createElement('img');
-  icon.src = `../media/weather-icons/${data.weather[0].icon}.png`;
+  icon.src = `./src/client/media/weather-icons/${data.weather[0].icon}.png`;
   icon.alt = data.weather[0].sky;
   icon.classList = 'weather-icon';
   weatherBox.appendChild(icon);
