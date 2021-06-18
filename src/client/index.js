@@ -5,6 +5,7 @@ import { getData } from './js/getData'
 import { createCard } from './js/createCard'
 import { convertDate } from './js/convertDate'
 import { displayDayOrDays } from './js/displayDayOrDays'
+import { createCurrentWeatherDiv } from './js/createCurrentWeatherDiv'
 
 export {
   addEntry,
@@ -13,5 +14,6 @@ export {
   getData,
   createCard,
   convertDate,
-  displayDayOrDays
+  displayDayOrDays,
+  createCurrentWeatherDiv
 }
