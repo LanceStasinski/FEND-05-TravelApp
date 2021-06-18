@@ -12,17 +12,17 @@ const createCountryInfoDiv = (data) => {
 
   const capital = document.createElement('div');
   capital.classList = 'country-capital';
-  capital.innerHTML = data.capital;
+  capital.innerHTML = `Capital: ${data.capital}`;
   countryInfo.appendChild(capital);
 
   const currency = document.createElement('div');
   currency.classList = 'country-currency';
-  currency.innerHTML = data.currency;
+  currency.innerHTML = `Currency: ${data.currency}`;
   countryInfo.appendChild(currency);
 
   const language = document.createElement('div');
   language.classList = 'country-language';
-  language.innerHTML = data.language;
+  language.innerHTML = `Language: ${data.language}`;
   countryInfo.appendChild(language);
 
   country.appendChild(countryInfo);
