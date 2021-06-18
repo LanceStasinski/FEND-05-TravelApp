@@ -22,9 +22,9 @@ const createCard = (data) => {
   cityImg.alt = data.imageTag;
   card.appendChild(cityImg);
 
-  //const ar = Client.createForecastWeatherDiv(data);
-  //console.log(ar)
   card.appendChild(Client.createWeatherDiv(data));
+
+  card.appendChild(Client.createCountryInfoDiv(data))
 
   fragment.append(card);
   const entries = document.getElementById('entries');

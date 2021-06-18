@@ -9,6 +9,7 @@ import { createCurrentWeatherDiv } from './js/createCurrentWeatherDiv'
 import { createForecastWeatherDiv } from './js/createForecastWeatherDiv'
 import { createWeatherDiv } from './js/createWeatherDiv'
 import { shortenDate } from './js/shortenDate'
+import { createCountryInfoDiv } from './js/createCountryInfoDiv'
 
 
 export {
@@ -22,5 +23,6 @@ export {
   createCurrentWeatherDiv,
   createForecastWeatherDiv,
   createWeatherDiv,
-  shortenDate
+  shortenDate,
+  createCountryInfoDiv
 }
