@@ -20,6 +20,7 @@ const createCurrentWeatherDiv = (data) => {
   const icon = document.createElement('img');
   icon.src = `../media/weather-icons/${data.weather[0].icon}.png`;
   icon.alt = data.weather[0].sky;
+  icon.classList = 'weather-icon';
   weatherBox.appendChild(icon);
   return weatherBox;
 }
