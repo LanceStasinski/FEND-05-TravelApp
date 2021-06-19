@@ -11,6 +11,8 @@ import { createWeatherDiv } from './js/createWeatherDiv'
 import { shortenDate } from './js/shortenDate'
 import { createCountryInfoDiv } from './js/createCountryInfoDiv'
 
+import './styles/_base.scss'
+import './styles/main.scss'
 
 export {
   addEntry,
