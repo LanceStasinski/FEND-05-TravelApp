@@ -1,0 +1,10 @@
+@use 'base';
+
+.main-hero {
+  height: 15vmin;
+
+  h1 {
+    font-family: base.$primary-font;
+    font-size: 8vmin;
+  }
+}

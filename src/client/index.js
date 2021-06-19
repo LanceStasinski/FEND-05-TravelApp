@@ -13,6 +13,7 @@ import { createCountryInfoDiv } from './js/createCountryInfoDiv'
 
 import './styles/_base.scss'
 import './styles/main.scss'
+import './styles/header.scss'
 
 export {
   addEntry,
