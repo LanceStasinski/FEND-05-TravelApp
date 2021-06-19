@@ -15,17 +15,23 @@
         Travel Planner
       </h1>
     </header>
-    <section>
+    <section id="trip-form">
       <h2>Add a new trip</h2>
       <form>
-        <label for="destination">Destination:</label>
-        <input type="text" id="destination"/>
-        <label for="arrival-date">Arival Date:</label>
-        <input type="date" id="arrival-date"/>
-        <label for="departure-date">Departure Date:</label>
-        <input type="date" id="departure-date"/>
+        <div class="form-section">
+          <label for="destination">Destination:</label>
+          <input type="text" id="destination" placeholder="City, State/Country"/>
+        </div>
+        <div class="form-section">
+          <label for="arrival-date">Arival Date:</label>
+          <input type="date" id="arrival-date"/>
+        </div>
+        <div class="form-section">
+          <label for="departure-date">Departure Date:</label>
+          <input type="date" id="departure-date"/>
+        </div>
       </form>
-      <button type="submit" id="submit">Submit</button>
+      <button type="submit" id="submit">Generate</button>
     </section>
     <section id="entries">
 

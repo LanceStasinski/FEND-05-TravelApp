@@ -1,0 +1,77 @@
+@use 'base';
+
+#trip-form {
+  font-family: base.$primary-font;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+
+  h2 {
+    font-size: 16pt;
+    align-self: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-section {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 10pt;
+    margin-left: 10px;
+  }
+
+  input {
+    font-size: 10pt;
+    color: #888;
+    font-family: base.$primary-font;
+  }
+
+  #submit {
+    font-family: base.$primary-font;
+    font-size: 10pt;
+    display: block;
+    align-self: center;
+    margin: 10px;
+    background-color: #555;
+    color: base.$secondary-color;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #trip-form {
+
+    h2 {
+      font-size: 4vmin;
+      margin-left: 1.5vmin;
+    }
+
+    form {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .form-section {
+      font-size: 2vmin;
+      margin-left: 1.5vmin;
+    }
+
+    input {
+      font-size: 2vmin;
+    }
+
+    #submit {
+      font-size: 2vmin;
+      width: 10vw;
+    }
+  }
+}
