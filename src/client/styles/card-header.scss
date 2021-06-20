@@ -1,0 +1,24 @@
+@use 'base';
+
+.card-header {
+  font-family: base.$primary-font;
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 500px;
+  border: solid 1px #000;
+  padding-left: 300px;
+  box-sizing: border-box;
+  box-shadow: inset -250px 0 50px 10px #FFF;
+}
+
+@media only screen and (min-width: 600px) {
+  .card-header {
+    h2 {
+      font-size: 2vmin;
+    }
+
+    h3 {
+      font-size: 1vmin;
+    }
+  }
+}

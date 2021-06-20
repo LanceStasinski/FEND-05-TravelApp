@@ -3,7 +3,8 @@ const createCard = (data) => {
   const card = document.createElement('div');
   card.classList = 'card';
 
-  const header = document.createElement('header');
+  const header = document.createElement('div');
+  header.classList = 'card-header';
   const title = document.createElement('h2');
   title.innerHTML = data.destination;
   header.appendChild(title);
@@ -15,16 +16,12 @@ const createCard = (data) => {
   const departure = Client.convertDate(data.departure);
   dates.innerHTML = `${arrival} - ${departure}`;
   header.appendChild(dates);
-  card.appendChild(header)
-
-  const cityImg = document.createElement('img');
-  cityImg.src = data.imageURL;
-  cityImg.alt = data.imageTag;
-  card.appendChild(cityImg);
+  header.style.backgroundImage = `url(${data.imageURL})`;
+  card.appendChild(header);
 
   card.appendChild(Client.createWeatherDiv(data));
 
-  card.appendChild(Client.createCountryInfoDiv(data))
+  card.appendChild(Client.createCountryInfoDiv(data));
 
   fragment.append(card);
   const entries = document.getElementById('entries');

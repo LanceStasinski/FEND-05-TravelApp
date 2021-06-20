@@ -16,6 +16,9 @@ import './styles/main.scss'
 import './styles/header.scss'
 import './styles/form.scss'
 import './styles/footer.scss'
+import './styles/card.scss'
+import './styles/card-header.scss'
+import './styles/country-info.scss'
 
 export {
   addEntry,
