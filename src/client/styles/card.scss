@@ -1,0 +1,21 @@
+@use 'base';
+
+.card {
+  display: grid;
+  grid-template-areas:
+  'head'
+  'img'
+  'weather'
+  'info';
+  gap: 5px;
+}
+
+@media only screen and (min-width: 600px) {
+  .card {
+    display: grid;
+    grid-template-areas:
+    'img img img img img img head head head'
+    'weather weather weather weather weather weather weather weather weather weather'
+    'info info info info info info info info info info';
+  }
+}
