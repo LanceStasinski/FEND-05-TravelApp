@@ -1,8 +1,16 @@
 @use 'base';
 
+#entries {
+  width: 90%;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid #444 2pt;
 }
+
 
