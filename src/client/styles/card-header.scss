@@ -4,7 +4,7 @@
   font-family: base.$primary-font;
   width: 90;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .header-text {
@@ -12,18 +12,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-left: 10%;
+}
+
+h2 {
+  text-decoration: underline;
 }
 
 .city-img {
-  width: 50%;
-  box-shadow: inset -250px 0 50px 10px #FFF;
   margin: 5px;
+  border: solid #444 4pt;
 }
 
 
 @media only screen and (min-width: 600px) {
   .card-header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .header-text {
     h2 {
       font-size: 4vmin;
     }
@@ -31,5 +38,11 @@
     h3 {
       font-size: 3vmin;
     }
+    padding-left: 10%;
+  }
+
+  .city-img {
+    width: 50%;
+    margin: 5px;
   }
 }
