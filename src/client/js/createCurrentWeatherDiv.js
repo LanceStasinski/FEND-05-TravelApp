@@ -2,7 +2,7 @@ const createCurrentWeatherDiv = (data) => {
   const weatherBox = document.createElement('div');
   weatherBox.classList = 'weather-current';
 
-  const date = document.createElement('div');
+  const date = document.createElement('h3');
   date.innerHTML = `Current Weather`;
   date.classList = 'weather-date';
   weatherBox.appendChild(date);

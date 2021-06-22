@@ -1,0 +1,61 @@
+@use 'base';
+
+.weather-section-forecast {
+  font-family: base.$primary-font;
+  margin-top: 5%;
+  border-top: solid #999 1pt;
+  border-bottom: solid #999 1pt;
+  padding: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    border-bottom: solid #444 2pt;
+  }
+}
+
+.weather-boxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-self: center;
+}
+
+.weather-forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid #999 1pt;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 4px;
+  font-family: base.$secondary-font;
+
+  .weather-date {
+    border-bottom: solid #999 2pt;
+  }
+
+  .weather-temp {
+    font-family: base.$secondary-font;
+    margin-top: 5px;
+  }
+
+  .weather-icon {
+    width: 60px;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .weather-section-forecast{
+    h3 {
+      font-size: 3vmin;
+    }
+  }
+  .weather-forecast {
+    font-size: 2vmin;
+  }
+}
