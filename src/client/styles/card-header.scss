@@ -20,7 +20,9 @@ h2 {
 
 .city-img {
   margin: 5px;
-  border: solid #444 4pt;
+  border: solid #444 2pt;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 
@@ -38,11 +40,10 @@ h2 {
     h3 {
       font-size: 3vmin;
     }
-    padding-left: 10%;
+    padding-left: 8%;
   }
 
   .city-img {
     width: 50%;
-    margin: 5px;
   }
 }
