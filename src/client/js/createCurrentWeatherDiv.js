@@ -3,19 +3,23 @@ const createCurrentWeatherDiv = (data) => {
   weatherBox.classList = 'weather-current';
 
   const date = document.createElement('div');
-  date.innerHTML = 'Current \n Weather';
+  date.innerHTML = `Current Weather`;
   date.classList = 'weather-date';
   weatherBox.appendChild(date);
+
+  const weatherInfo = document.createElement('div');
+  weatherInfo.classList = 'weather-info';
 
   const temp = document.createElement('div');
   temp.innerHTML = `${data.weather[0].temp} °F`;
   temp.classList = 'weather-temp';
-  weatherBox.appendChild(temp);
+  weatherInfo.appendChild(temp);
 
   const sky = document.createElement('div');
   sky.innerHTML = data.weather[0].sky;
   sky.classList = 'weather-sky';
-  weatherBox.appendChild(sky);
+  weatherInfo.appendChild(sky);
+  weatherBox.appendChild(weatherInfo);
 
   const icon = document.createElement('img');
   icon.src = `./src/client/media/weather-icons/${data.weather[0].icon}.png`;

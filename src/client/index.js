@@ -19,6 +19,7 @@ import './styles/footer.scss'
 import './styles/card.scss'
 import './styles/card-header.scss'
 import './styles/country-info.scss'
+import './styles/weather-current.scss'
 
 export {
   addEntry,

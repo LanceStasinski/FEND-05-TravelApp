@@ -1,1 +1,61 @@
 @use 'base';
+
+.weather-section {
+  font-family: base.$primary-font;
+  margin-top: 5%;
+  border-top: solid #999 1pt;
+  border-bottom: solid #999 1pt;
+  padding: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.weather-current {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .weather-date {
+    border-bottom: solid #444 2pt;
+  }
+
+  .weather-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  .weather-temp {
+    font-family: base.$secondary-font;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .weather-current {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .weather-date {
+      border-bottom: none;
+      font-size: 3vmin;
+      margin-left: 2%;
+      width: 0;
+      overflow: visible;
+    }
+
+    .weather-info {
+      border-left: solid #444 2pt;
+      padding-left: 15%;
+      font-size: 2.5vmin;
+      margin-top: 0;
+      padding-top: 10%;
+      padding-bottom: 10%;
+    }
+
+    .weather-icon {
+      width: 25vmin;
+    }
+  }
+}

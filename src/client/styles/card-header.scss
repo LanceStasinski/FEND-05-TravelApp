@@ -2,7 +2,6 @@
 
 .card-header {
   font-family: base.$primary-font;
-  width: 90;
   display: flex;
   flex-direction: column;
 }
@@ -15,12 +14,13 @@
 }
 
 h2 {
-  text-decoration: underline;
+  border-bottom: #444 solid 2pt;
+  padding-bottom: 2%;
 }
 
 .city-img {
   margin: 5px;
-  border: solid #444 2pt;
+  border: solid #999 1pt;
   padding: 5px;
   border-radius: 5px;
 }
