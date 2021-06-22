@@ -1,5 +1,51 @@
 @use 'base';
 
+.country {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  align-items: center;
+}
+
 .country-flag {
-  width: 45px;
+  width: 50vmin;
+  order: 2;
+  margin-top: 5%;
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-right: 5%;
+  width: 50vmin;
+  height: 100%;
+  order: 1;
+  border: solid black 2pt;
+  padding-top: 0;
+}
+
+.country-name {
+  border-bottom: solid #444 2pt;
+  margin-bottom: 5px;
+  text-align: center;
+  padding-top: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .country {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    font-size: 2vmin;
+  }
+
+  .country-name {
+    font-size: 3vmin;
+  }
+
+  .country-flag {
+    margin-top: 0;
+  }
 }
