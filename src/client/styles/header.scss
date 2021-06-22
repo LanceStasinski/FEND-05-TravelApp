@@ -2,9 +2,19 @@
 
 .main-hero {
   height: 15vmin;
+  margin-bottom: 10px;
 
   h1 {
     font-family: base.$primary-font;
-    font-size: 8vmin;
+    font-size: 20pt;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .main-hero {
+
+    h1 {
+      font-size: 8vmin;
+    }
   }
 }

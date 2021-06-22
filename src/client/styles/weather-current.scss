@@ -20,10 +20,10 @@
   }
 
   .weather-info {
+    padding-top: 5%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 5%;
   }
 
   .weather-temp {
@@ -36,26 +36,29 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     .weather-date {
       border-bottom: none;
       font-size: 3vmin;
-      margin-left: 2%;
-      width: 0;
+      width: 25%;
       overflow: visible;
+      padding-left: 5%;
+      padding-right: 2%;
+      padding-bottom: 0;
     }
 
     .weather-info {
       border-left: solid #444 2pt;
-      padding-left: 15%;
       font-size: 2.5vmin;
-      margin-top: 0;
-      padding-top: 10%;
+      width: 45%;
       padding-bottom: 10%;
+      padding-top: 10%;
+
     }
 
     .weather-icon {
-      width: 25vmin;
+      width: 30%;
     }
   }
 }
