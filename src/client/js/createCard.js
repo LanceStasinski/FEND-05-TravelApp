@@ -4,9 +4,7 @@ const createCard = (data) => {
   card.classList = 'card';
 
   card.appendChild(Client.createHeader(data));
-
   card.appendChild(Client.createWeatherDiv(data));
-
   card.appendChild(Client.createCountryInfoDiv(data));
 
   fragment.append(card);
