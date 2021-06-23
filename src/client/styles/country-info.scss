@@ -32,6 +32,11 @@
   padding-top: 0;
 }
 
+.infoSections {
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (min-width: 600px) {
   .country {
     display: flex;
@@ -47,5 +52,14 @@
 
   .country-flag {
     margin-top: 0;
+  }
+
+  .infoSections {
+    display: flex;
+    flex-direction: row;
+
+    .section1 {
+      border-right: solid #444 2pt;
+    }
   }
 }
