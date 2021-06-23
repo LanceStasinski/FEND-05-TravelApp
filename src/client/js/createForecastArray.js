@@ -1,6 +1,6 @@
 const createForecastArray = (data) => {
   let array = [];
-  const weatherDays = data.weather;
+  const weatherDays = data.forecast;
 
   for (const weather of weatherDays) {
     let weatherBox = document.createElement('div');

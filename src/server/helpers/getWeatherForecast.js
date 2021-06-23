@@ -15,7 +15,7 @@ const getWeatherForecast = async (coords, key) => {
     };
     tripWeather.push(day);
   }
-  return weatherData;
+  return tripWeather;
 }
 
 exports.getWeatherForecast = getWeatherForecast;

@@ -9,7 +9,7 @@ const postToServer = async (data) => {
     .then((response) => response.json())
     .then((response) => {
       console.log(response);
-     // Client.createCard(response);
+      Client.createCard(response);
     })
   } catch (error) {
     console.log("error", error);

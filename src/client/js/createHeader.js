@@ -8,9 +8,10 @@ const createHeader = (data) => {
   title.classList = 'header-title';
   header.appendChild(title);
 
-  const icon = document.createElement('div');
+  const icon = document.createElement('img');
   icon.classList = 'header-icon';
-  icon.innerHTML = data.current.icon;
+  icon.src = `./src/client/media/weather-icons/${data.current.icon}.png`;
+  icon.alt = data.current.sky;
   header.appendChild(icon);
 
   const temp = document.createElement('div');
