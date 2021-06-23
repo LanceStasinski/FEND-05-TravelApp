@@ -3,18 +3,7 @@ const createCard = (data) => {
   const card = document.createElement('div');
   card.classList = 'card';
 
-  const header = document.createElement('div');
-  header.classList = 'card-header';
-
-  const img = document.createElement('img');
-  img.src = data.imageURL;
-  img.alt = data.imageTag;
-  img.classList = 'city-img';
-  header.appendChild(img);
-
-
-
-  card.appendChild(header);
+  card.appendChild(Client.createHeader(data));
 
   card.appendChild(Client.createWeatherDiv(data));
 

@@ -1,4 +1,4 @@
-const createForecastWeatherDiv = (data) => {
+const createForecastArray = (data) => {
   let array = [];
   const weatherDays = data.weather;
 
@@ -28,4 +28,4 @@ const createForecastWeatherDiv = (data) => {
   return array;
 }
 
-export { createForecastWeatherDiv }
+export { createForecastArray }
