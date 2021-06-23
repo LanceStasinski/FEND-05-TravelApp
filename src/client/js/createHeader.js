@@ -20,12 +20,12 @@ const createHeader = (data) => {
 
   const arrival = document.createElement('div');
   arrival.classList = 'header-date';
-  arrival.innerHTML = Client.convertDate(data.arrival);
+  arrival.innerHTML = `Arrival: ${Client.convertDate(data.arrival)}`;
   header.appendChild(arrival);
 
   const departure = document.createElement('div');
   departure.classList = 'header-date';
-  departure.innerHTML = Client.convertDate(data.departure);
+  departure.innerHTML = `Departure: ${Client.convertDate(data.departure)}`;
   header.appendChild(departure);
 
   const daysAway = document.createElement('div');
