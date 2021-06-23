@@ -27,7 +27,7 @@ app.listen(3030, () => {
 
 //require middleware functions
 const { getCoords } = require('./middleware/getCoords');
-const { getWeather } = require('./helpers/getWeather');
+const { getWeatherCurrent } = require('./helpers/getWeatherCurrent');
 const { getImage } = require('./helpers/getImage');
 const { getCountryInfo } = require('./middleware/getCountryInfo');
 
@@ -36,7 +36,8 @@ const getData = async (req, res) => {
   console.log(req.body);
   const coords = await getCoords(req, geoUser);
   console.log(coords);
-  const tripWeather = await getWeather(coords, req, weatherKey);
+  const currentWeather = await getWeatherCurrent(coords, weatherKey);
+  const forecastWeather = await getWeatherForecast(coords, weatherKey);
   const image = await getImage(coords, imageKey);
   const countryInfo = await getCountryInfo(coords);
   //console.log(countryInfo);
@@ -45,7 +46,8 @@ const getData = async (req, res) => {
     departure: req.body.departure,
     daysAway: req.body.daysAway,
     destination: req.body.destination,
-    weather: tripWeather,
+    current: currentWeather,
+    forecast: forecastWeather,
     imageURL: image[1],
     imageTag: image[0],
     countryName: countryInfo.name,

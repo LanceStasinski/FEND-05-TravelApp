@@ -17,13 +17,6 @@ const createForecastWeatherDiv = (data) => {
     temp.classList = 'weather-temp';
     weatherBox.appendChild(temp);
 
-    /*
-    let sky = document.createElement('div');
-    sky.innerHTML = weather.sky;
-    sky.classList = 'weather-sky';
-    weatherBox.appendChild(sky);
-    */
-
     let icon = document.createElement('img');
     icon.src = `./src/client/media/weather-icons/${weather.icon}.png`
     icon.alt = weather.sky;
