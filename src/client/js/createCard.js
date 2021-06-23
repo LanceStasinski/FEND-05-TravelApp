@@ -12,20 +12,7 @@ const createCard = (data) => {
   img.classList = 'city-img';
   header.appendChild(img);
 
-  const headerText = document.createElement('div');
-  headerText.classList = 'header-text';
-  const title = document.createElement('h2');
-  title.innerHTML = data.destination;
-  headerText.appendChild(title);
-  const daysAway = document.createElement('h3');
-  daysAway.innerHTML = Client.displayDayOrDays(data);
-  headerText.appendChild(daysAway);
-  const dates = document.createElement('h3');
-  const arrival = Client.convertDate(data.arrival);
-  const departure = Client.convertDate(data.departure);
-  dates.innerHTML = `${arrival} - ${departure}`;
-  headerText.appendChild(dates);
-  header.appendChild(headerText);
+
 
   card.appendChild(header);
 

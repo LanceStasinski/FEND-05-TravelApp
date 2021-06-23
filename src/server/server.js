@@ -28,6 +28,7 @@ app.listen(3030, () => {
 //require middleware functions
 const { getCoords } = require('./middleware/getCoords');
 const { getWeatherCurrent } = require('./helpers/getWeatherCurrent');
+const { getWeatherForecast } = require('./helpers/getWeatherForecast');
 const { getImage } = require('./helpers/getImage');
 const { getCountryInfo } = require('./middleware/getCountryInfo');
 
