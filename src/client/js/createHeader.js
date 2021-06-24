@@ -1,38 +1,53 @@
 const createHeader = (data) => {
   const header = document.createElement('div');
   header.classList = 'card-header';
-  header.style.backgroundImage = `url(${data.imageURL})`;
+
+  const image = document.createElement('img');
+  image.classList = 'header-image';
+  image.src = data.imageURL;
+  image.alt = data.imageTag;
+  header.appendChild(image);
+
+  const background = document.createElement('div');
+  background.classList = 'header-background';
+  background.style.backgroundImage = `url(${data.imageURL})`;
+  header.appendChild(background);
+
+  const headerText = document.createElement('div');
+  headerText.classList = 'header-text';
 
   const title = document.createElement('h2')
   title.innerHTML = data.destination;
   title.classList = 'header-title';
-  header.appendChild(title);
+  headerText.appendChild(title);
 
   const icon = document.createElement('img');
   icon.classList = 'header-icon';
   icon.src = `./src/client/media/weather-icons/${data.current.icon}.png`;
   icon.alt = data.current.sky;
-  header.appendChild(icon);
+  headerText.appendChild(icon);
 
   const temp = document.createElement('div');
   temp.classList = 'header-temp';
   temp.innerHTML = `${data.current.temp} °F`;
-  header.appendChild(temp);
+  headerText.appendChild(temp);
 
   const arrival = document.createElement('div');
-  arrival.classList = 'header-date';
+  arrival.classList = 'header-arrival';
   arrival.innerHTML = `Arrival: ${Client.convertDate(data.arrival)}`;
-  header.appendChild(arrival);
+  headerText.appendChild(arrival);
 
   const departure = document.createElement('div');
-  departure.classList = 'header-date';
+  departure.classList = 'header-departure';
   departure.innerHTML = `Departure: ${Client.convertDate(data.departure)}`;
-  header.appendChild(departure);
+  headerText.appendChild(departure);
 
   const daysAway = document.createElement('div');
   daysAway.classList = 'header-days';
   daysAway.innerHTML = Client.displayDayOrDays(data);
-  header.appendChild(daysAway);
+  headerText.appendChild(daysAway);
+
+  header.appendChild(headerText);
 
   return header;
 }
