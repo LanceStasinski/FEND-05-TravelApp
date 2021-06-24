@@ -15,6 +15,7 @@ const createWeatherDiv = (data) => {
     weatherBoxes.appendChild(box)
   }
   weatherSection.appendChild(weatherBoxes);
+  weatherSection.style.display = 'none';
 
   return weatherSection;
 }

@@ -50,6 +50,7 @@ const createCountryInfoDiv = (data) => {
 
   countryInfo.appendChild(infoSections);
   country.appendChild(countryInfo);
+  country.style.display = 'none';
 
   return country;
 }
