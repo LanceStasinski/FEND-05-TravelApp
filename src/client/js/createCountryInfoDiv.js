@@ -1,6 +1,7 @@
 const createCountryInfoDiv = (data) => {
   const country = document.createElement('div');
   country.classList = 'country';
+  country.id = `country-${data.tripNum}`;
 
   const flag = document.createElement('img');
   flag.src = data.flag;
