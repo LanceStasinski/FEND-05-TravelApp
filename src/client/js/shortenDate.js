@@ -1,9 +1,11 @@
 const shortenDate = (date) => {
-  const newDate = new Date(date);
-  const month = newDate.getMonth() + 1;
-  const day = newDate.getDate();
-  const dateString = `${month}/${day}`;
-  return dateString;
+  const shortDate = date.replace(/^\d{4}[-]/, '')
+  let slashDate = shortDate.replace(/-/g, '\/');
+
+  if (/^0/.test(slashDate)) {
+    slashDate = slashDate.replace(/^0/, '')
+  }
+  return slashDate
 }
 
 export { shortenDate }
