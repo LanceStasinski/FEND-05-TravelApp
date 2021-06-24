@@ -9,6 +9,7 @@ import { createWeatherDiv } from './js/createWeatherDiv'
 import { shortenDate } from './js/shortenDate'
 import { createCountryInfoDiv } from './js/createCountryInfoDiv'
 import { createHeader } from './js/createHeader'
+import { createButtons } from './js/createButtons'
 
 import './styles/_base.scss'
 import './styles/main.scss'
@@ -31,5 +32,6 @@ export {
   createWeatherDiv,
   shortenDate,
   createCountryInfoDiv,
-  createHeader
+  createHeader,
+  createButtons
 }

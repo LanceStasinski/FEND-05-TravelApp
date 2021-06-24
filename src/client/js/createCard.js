@@ -7,6 +7,7 @@ const createCard = (data) => {
   card.appendChild(Client.createHeader(data));
   card.appendChild(Client.createWeatherDiv(data));
   card.appendChild(Client.createCountryInfoDiv(data));
+  card.appendChild(Client.createButtons(data))
 
   fragment.append(card);
   const entries = document.getElementById('entries');
