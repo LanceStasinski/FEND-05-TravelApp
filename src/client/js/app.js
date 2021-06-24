@@ -1,3 +1,5 @@
+let tripNum = 0;
+
 const addEntry = async () => {
   const departureDate = document.getElementById('departure-date').value;
   const arrivalDate = document.getElementById('arrival-date').value;
@@ -9,11 +11,13 @@ const addEntry = async () => {
   } else if (departureDate < arrivalDate) {
     alert('Please choose a departure date that occurs after the arrival date')
   } else {
+    tripNum ++;
     const req = {
       arrival: arrivalDate,
       departure: departureDate,
       destination: destination,
-      daysAway: days
+      daysAway: days,
+      tripNum: tripNum
     }
     Client.postToServer(req);
   }

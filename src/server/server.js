@@ -56,7 +56,8 @@ const getData = async (req, res) => {
     currency: countryInfo.currencies[0].name,
     flag: countryInfo.flag,
     language: countryInfo.languages[0].name,
-    region: countryInfo.subregion
+    region: countryInfo.subregion,
+    tripNum: req.body.tripNum
   }
   console.log(trip);
   res.send(trip)
