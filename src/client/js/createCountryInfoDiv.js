@@ -12,43 +12,35 @@ const createCountryInfoDiv = (data) => {
   const countryInfo = document.createElement('div');
   countryInfo.classList = 'country-info';
 
-  const name = document.createElement('h3');
+  const dataSection = document.createElement('div');
+  dataSection.classList = 'data-section';
+
+  const name = document.createElement('div');
   name.classList = 'country-name';
-  name.innerHTML = data.countryName;
+  name.innerHTML = `<b>${data.countryName}<b>`;
   countryInfo.appendChild(name);
 
-  const infoSections = document.createElement('div');
-  infoSections.classList = 'sections';
-
-  const section1 = document.createElement('div');
-  section1.classList = 'section1';
-
   const capital = document.createElement('div');
-  capital.classList = 'country-capital';
+  capital.classList = 'country-data';
   capital.innerHTML = `<b>Capital</b>: ${data.capital}`;
-  section1.appendChild(capital);
+  dataSection.appendChild(capital);
 
   const region = document.createElement('div');
-  region.classList = 'country-region';
+  region.classList = 'country-data';
   region.innerHTML = `<b>Region</b>: ${data.region}`
-  section1.appendChild(region);
-  infoSections.appendChild(section1);
-
-  const section2 = document.createElement('div');
-  section2.classList = 'section2';
+  dataSection.appendChild(region);
 
   const currency = document.createElement('div');
-  currency.classList = 'country-currency';
+  currency.classList = 'country-data';
   currency.innerHTML = `<b>Currency</b>: ${data.currency}`;
-  section2.appendChild(currency);
+  dataSection.appendChild(currency);
 
   const language = document.createElement('div');
-  language.classList = 'country-language';
+  language.classList = 'country-data';
   language.innerHTML = `<b>Language</b>: ${data.language}`;
-  section2.appendChild(language);
-  infoSections.appendChild(section2);
+  dataSection.appendChild(language);
 
-  countryInfo.appendChild(infoSections);
+  countryInfo.appendChild(dataSection);
   country.appendChild(countryInfo);
   country.style.display = 'none';
 
