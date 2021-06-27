@@ -10,6 +10,10 @@ const addEntry = async () => {
     alert('Please choose a future arrival date')
   } else if (departureDate < arrivalDate) {
     alert('Please choose a departure date that occurs after the arrival date')
+  } else if (departureDate == '' || arrivalDate == '') {
+    alert('Please enter trip dates')
+  } else if (destination == '') {
+    alert('Please enter a destination')
   } else {
     tripNum ++;
     const req = {

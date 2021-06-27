@@ -15,13 +15,19 @@
 .card-button {
  display: inline-block;
  width: 80px;
- background-color: #ccc;
- color: #444;
+ background-color: base.$secondary-color;
+ color: black;
  font-family: base.$primary-font;
  margin-top: 10px;
  margin-bottom: 10px;
- border: #222 solid 2pt;
+ border: base.$primary-color solid 2pt;
  border-radius: 10px;
  padding-top: 4px;
  padding-bottom: 4px;
+}
+
+@media only screen and (min-width: 600px) {
+  .card-button {
+    width: 20%;
+  }
 }

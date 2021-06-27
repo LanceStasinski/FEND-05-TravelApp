@@ -2,6 +2,7 @@
 
 .weather-section-forecast {
   font-family: base.$primary-font;
+  background-color: #444;
   margin-top: 2%;
   border-top: solid #999 1pt;
   padding: 2%;
@@ -25,7 +26,7 @@
   padding: 3px;
   margin: 4px;
   font-family: base.$secondary-font;
-  background-color: whitesmoke;
+  background-color: base.$secondary-color;
 
   .weather-date {
     border-bottom: solid #999 2pt;
