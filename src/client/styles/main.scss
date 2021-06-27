@@ -1,7 +1,8 @@
 @use 'base';
 
 .container {
-  background-color: #fff;
+  background: url('../media/images/sunset.jpg') center center fixed;
+  background-size: cover;
   min-width: 200px;
   width: 100vw;
   display: flex;
