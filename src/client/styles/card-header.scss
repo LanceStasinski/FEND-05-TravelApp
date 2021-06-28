@@ -3,7 +3,7 @@
 .card-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5%;
+  //padding-bottom: 5%;
 
   .header-image {
     display: block;
@@ -54,7 +54,7 @@
       'day day tmp';
       justify-items: center;
       align-items: center;
-      margin-bottom: 5%;
+      padding-bottom: 5%;
 
       .header-title {
         grid-area: title;
@@ -113,8 +113,8 @@
       align-items: center;
       width: 30%;
       align-self: center;
-      margin-bottom: 12.5%;
-      margin-top: 12.5%;
+      padding-bottom: 12.5%;
+      padding-top: 12.5%;
       font-size: 3vmin;
 
       .header-icon, .header-temp{
