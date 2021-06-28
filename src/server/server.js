@@ -37,27 +37,35 @@ const getData = async (req, res) => {
   console.log(req.body);
   const coords = await getCoords(req, geoUser);
   console.log(coords);
-  const currentWeather = await getWeatherCurrent(coords, weatherKey);
-  const forecastWeather = await getWeatherForecast(coords, weatherKey);
-  const image = await getImage(coords, imageKey);
-  const countryInfo = await getCountryInfo(coords);
-  //console.log(countryInfo);
-  const trip = {
-    arrival: req.body.arrival,
-    departure: req.body.departure,
-    daysAway: req.body.daysAway,
-    destination: req.body.destination,
-    current: currentWeather,
-    forecast: forecastWeather,
-    imageURL: image[1],
-    imageTag: image[0],
-    countryName: countryInfo.name,
-    capital: countryInfo.capital,
-    currency: countryInfo.currencies[0].name,
-    flag: countryInfo.flag,
-    language: countryInfo.languages[0].name,
-    region: countryInfo.subregion,
-    tripNum: req.body.tripNum
+  let trip = {};
+  if (coords.totalResultsCount == 0) {
+    trip = {
+      message: 'Location not recognized'
+    }
+  } else {
+    const currentWeather = await getWeatherCurrent(coords, weatherKey);
+    const forecastWeather = await getWeatherForecast(coords, weatherKey);
+    const image = await getImage(coords, imageKey);
+    const countryInfo = await getCountryInfo(coords);
+    //console.log(countryInfo);
+    trip = {
+      message: 'OK',
+      arrival: req.body.arrival,
+      departure: req.body.departure,
+      daysAway: req.body.daysAway,
+      destination: req.body.destination,
+      current: currentWeather,
+      forecast: forecastWeather,
+      imageURL: image[1],
+      imageTag: image[0],
+      countryName: countryInfo.name,
+      capital: countryInfo.capital,
+      currency: countryInfo.currencies[0].name,
+      flag: countryInfo.flag,
+      language: countryInfo.languages[0].name,
+      region: countryInfo.subregion,
+      tripNum: req.body.tripNum
+    }
   }
   console.log(trip);
   res.send(trip)
