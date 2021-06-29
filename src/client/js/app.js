@@ -2,10 +2,9 @@ if (window.localStorage.length !== 0) {
   const savedEntries = document.getElementById('entries');
 
   for (let i = 0; i < window.localStorage.length; i++) {
-    let newDiv = document.createElement('div');
-    newDiv.innerHTML = localStorage.getItem(localStorage.key(i));
-    let newCard = newDiv.firstChild;
-    savedEntries.appendChild(newCard);
+
+    let trip = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    savedEntries.appendChild(restoreCrard(trip));
   }
 }
 

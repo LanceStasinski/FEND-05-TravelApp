@@ -69,8 +69,29 @@ const getData = async (req, res) => {
     }
   }
   console.log(trip);
-  res.send(trip)
+  res.send(trip);
 }
 
 //POST route
 app.post('/add', getData)
+
+
+const { updateWeatherCurrent } = require('./helpers/updateWeatherCurrent');
+const { updateWeatherForecast } = require('./helpers/updateWeatherForecast');
+
+const updateData = async (req, res) => {
+  const coords = {
+    lat: req.body.lat,
+    lng: req.body.lng
+  };
+  const currentWeather = await updateWeatherCurrent(coords, weatherKey);
+  const forecastWeather = await updateWeatherForecast(coords, weatherKey);
+  let trip = {
+    current: currentWeather,
+    forecast: forecastWeather
+  }
+  console.log(trip);
+  res.send(trip);
+}
+
+app.post('/update', updateData)

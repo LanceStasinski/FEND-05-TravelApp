@@ -10,6 +10,7 @@ import { shortenDate } from './js/shortenDate'
 import { createCountryInfoDiv } from './js/createCountryInfoDiv'
 import { createHeader } from './js/createHeader'
 import { createButtons } from './js/createButtons'
+import { createMetadata } from './js/createMetadata'
 
 import './styles/_base.scss'
 import './styles/main.scss'
@@ -35,4 +36,5 @@ export {
   createCountryInfoDiv,
   createHeader,
   createButtons,
+  createMetadata
 }
