@@ -5,7 +5,7 @@ const createButtons = (data) => {
   buttonHolder.id = `btns-${tripNum}`;
 
   const forecastBtn = document.createElement('button');
-  forecastBtn.classList.add('show-hide', 'card-button');
+  forecastBtn.classList.add('show-hide', 'card-button', 'show-forecast');
   forecastBtn.innerHTML = 'Forecast';
   forecastBtn.addEventListener('click', () => {
     const weatherDiv = document.getElementById(`weather-${tripNum}`);
@@ -18,7 +18,7 @@ const createButtons = (data) => {
   buttonHolder.appendChild(forecastBtn);
 
   const countryBtn = document.createElement('button');
-  countryBtn.classList.add('show-hide', 'card-button');
+  countryBtn.classList.add('show-hide', 'card-button', 'show-country');
   countryBtn.innerHTML = 'Info';
   countryBtn.addEventListener('click', () => {
     const countryDiv = document.getElementById(`country-${tripNum}`);
@@ -31,7 +31,7 @@ const createButtons = (data) => {
   buttonHolder.appendChild(countryBtn);
 
   const deleteBtn = document.createElement('button');
-  deleteBtn.classList = 'card-button';
+  deleteBtn.classList.add('card-button', 'delete');
   deleteBtn.id = `delete-${tripNum}`;
   deleteBtn.style.display = 'none';
   deleteBtn.innerHTML = 'Delete';
@@ -56,8 +56,24 @@ const createButtons = (data) => {
     const del = document.getElementById(`delete-${tripNum}`);
     del.style.display = 'block';
     const tripCard = document.getElementById(`card-${tripNum}`);
-    const cardHTML = tripCard.outerHTML;
-    localStorage.setItem(`card-${tripNum}`, cardHTML);
+
+    const trip = {
+      arrival: tripCard.getElementsByClassName('header-arrival')[0].innerHTML,
+      departure: tripCard.getElementsByClassName('header-departure')[0].innerHTML,
+      desination: tripCard.getElementsByClassName('header-title')[0].innerHTML,
+      imageURL: tripCard.getElementsByClassName('header-image')[0].src,
+      imageTag: tripCard.getElementsByClassName('header-image')[0].alt,
+      countryName: tripCard.getElementsByClassName('country-name')[0].innerHTML,
+      currency: tripCard.getElementsByClassName('country-currency')[0].innerHTML,
+      capital: tripCard.getElementsByClassName('country-capital')[0].innerHTML,
+      flag: tripCard.getElementsByClassName('country-flag')[0].src,
+      language: tripCard.getElementsByClassName('country-language')[0].innerHTML,
+      region: tripCard.getElementsByClassName('country-region')[0].innerHTML,
+      tripNum: tripCard.getElementsByClassName('card-number')[0].innerHTML,
+      lat: tripCard.getElementsByClassName('lat')[0].innerHTML,
+      lng: tripCard.getElementsByClassName('lng')[0].innerHTML
+    }
+    localStorage.setItem(`card-${tripNum}`, JSON.stringify(trip));
   })
   buttonHolder.appendChild(saveBtn);
   return buttonHolder;

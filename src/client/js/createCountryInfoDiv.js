@@ -21,22 +21,22 @@ const createCountryInfoDiv = (data) => {
   countryInfo.appendChild(name);
 
   const capital = document.createElement('div');
-  capital.classList = 'country-data';
+  capital.classList.add('country-data', 'country-capital');
   capital.innerHTML = `<b>Capital</b>: ${data.capital}`;
   dataSection.appendChild(capital);
 
   const region = document.createElement('div');
-  region.classList = 'country-data';
+  region.classList.add('country-data', 'country-region');
   region.innerHTML = `<b>Region</b>: ${data.region}`
   dataSection.appendChild(region);
 
   const currency = document.createElement('div');
-  currency.classList = 'country-data';
+  currency.classList.add('country-data', 'country-currency');
   currency.innerHTML = `<b>Currency</b>: ${data.currency}`;
   dataSection.appendChild(currency);
 
   const language = document.createElement('div');
-  language.classList = 'country-data';
+  language.classList.add('country-data', 'country-language');
   language.innerHTML = `<b>Language</b>: ${data.language}`;
   dataSection.appendChild(language);
 

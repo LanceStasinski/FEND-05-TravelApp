@@ -47,7 +47,6 @@ const getData = async (req, res) => {
     const forecastWeather = await getWeatherForecast(coords, weatherKey);
     const image = await getImage(coords, imageKey);
     const countryInfo = await getCountryInfo(coords);
-    //console.log(countryInfo);
     trip = {
       message: 'OK',
       arrival: req.body.arrival,
@@ -64,7 +63,9 @@ const getData = async (req, res) => {
       flag: countryInfo.flag,
       language: countryInfo.languages[0].name,
       region: countryInfo.subregion,
-      tripNum: req.body.tripNum
+      tripNum: req.body.tripNum,
+      lat: coords.geonames[0].lat,
+      lng: coords.geonames[0].lng
     }
   }
   console.log(trip);
