@@ -34,5 +34,5 @@ export {
   shortenDate,
   createCountryInfoDiv,
   createHeader,
-  createButtons
+  createButtons,
 }

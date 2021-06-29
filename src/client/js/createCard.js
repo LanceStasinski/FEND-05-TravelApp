@@ -13,6 +13,12 @@ const createCard = (data) => {
     card.appendChild(Client.createCountryInfoDiv(data));
     card.appendChild(Client.createButtons(data))
 
+    const cardNum = document.createElement('div');
+    cardNum.innerHTML = data.tripNum;
+    cardNum.classList = 'card-number';
+    cardNum.style.display = 'none';
+    card.appendChild(cardNum);
+
     fragment.append(card);
     const entries = document.getElementById('entries');
     entries.appendChild(fragment);

@@ -30,18 +30,36 @@ const createButtons = (data) => {
   })
   buttonHolder.appendChild(countryBtn);
 
-  const saveBtn = document.createElement('button');
-  saveBtn.classList.add('save', 'card-button');
-  saveBtn.innerHTML = 'Save';
-  buttonHolder.appendChild(saveBtn);
-  //add event listener
-
   const deleteBtn = document.createElement('button');
   deleteBtn.classList = 'card-button';
+  deleteBtn.id = `delete-${tripNum}`;
+  deleteBtn.style.display = 'none';
   deleteBtn.innerHTML = 'Delete';
+  deleteBtn.addEventListener('click', () => {
+    console.log(tripNum)
+    /*
+    const entries = document.getElementById('entries');
+    const currentEntry = document.getElementById(`card-${tripNum}`);
+    entries.removeChild(currentEntry);
+    localStorage.removeItem(`card-${tripNum}`);
+    */
+  })
   buttonHolder.appendChild(deleteBtn);
-  //add event listener
 
+  const saveBtn = document.createElement('button');
+  saveBtn.classList.add('save', 'card-button');
+  saveBtn.id = `save-${tripNum}`
+  saveBtn.innerHTML = 'Save';
+  saveBtn.addEventListener('click', () => {
+    const save = document.getElementById(`save-${tripNum}`);
+    save.style.display = 'none';
+    const del = document.getElementById(`delete-${tripNum}`);
+    del.style.display = 'block';
+    const tripCard = document.getElementById(`card-${tripNum}`);
+    const cardHTML = tripCard.outerHTML;
+    localStorage.setItem(`card-${tripNum}`, cardHTML);
+  })
+  buttonHolder.appendChild(saveBtn);
   return buttonHolder;
 }
 
