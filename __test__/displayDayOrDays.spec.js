@@ -1,4 +1,4 @@
-import { displayDayOrDays } from "../src/client/js/displayDayOrDays";
+import { displayDayOrDays } from "../src/client/js/helpers/displayDayOrDays";
 
 let data = {}
 const cases = [

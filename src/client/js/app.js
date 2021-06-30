@@ -6,7 +6,6 @@ window.addEventListener('load', () => {
     }
   }
 })
-
 const addEntry = async () => {
   const departureDate = document.getElementById('departure-date').value;
   const arrivalDate = document.getElementById('arrival-date').value;
@@ -25,8 +24,6 @@ const addEntry = async () => {
     }
     tripNum = Math.max(...idArray);
   }
-
-  console.log(tripNum)
 
   if (days < 0) {
     alert('Please choose a future arrival date')

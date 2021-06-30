@@ -1,4 +1,4 @@
-import { getDateFromString } from "../src/client/js/getDateFromString";
+import { getDateFromString } from "../src/client/js/helpers/getDateFromString";
 
 let string = '';
 const cases = [
