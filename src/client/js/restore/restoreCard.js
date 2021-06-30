@@ -11,15 +11,12 @@ const restoreCard = async (data) => {
 
     card.appendChild(Client.restoreHeader(data));
     card.appendChild(Client.createWeatherDiv(data));
-    /*
-    card.appendChild(Client.createCountryInfoDiv(data));
-    card.appendChild(Client.createButtons(data))
-    */
-    card.appendChild(Client.createMetadata(data))
+    card.appendChild(Client.restoreCountryInfo(data));
+    card.appendChild(Client.restoreButtons(data));
+    card.appendChild(Client.createMetadata(data));
     fragment.append(card);
     const entries = document.getElementById('entries');
     entries.appendChild(fragment);
-
 }
 
 export { restoreCard }
