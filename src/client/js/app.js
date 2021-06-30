@@ -1,32 +1,32 @@
-let tripNum = 0
 window.addEventListener('load', () => {
   if (window.localStorage.length !== 0) {
-    let trip = JSON.parse(localStorage.getItem(localStorage.key(0)));
-    Client.restoreCard(trip)
-    /*
-    const savedEntries = document.getElementById('entries');
-
     for (let i = 0; i < window.localStorage.length; i++) {
-
       let trip = JSON.parse(localStorage.getItem(localStorage.key(i)));
-      savedEntries.appendChild(Client.restoreCrard(trip));
+      Client.restoreCard(trip);
     }
-    const uniqueIds = document.querySelectorAll('div.card-number');
-    let idArray = [];
-    for (const id of uniqueIds) {
-      idArray.push(id.innerHTML)
-    }
-    tripNum = Math.max(...idArray);
-    */
   }
 })
-console.log(tripNum)
 
 const addEntry = async () => {
   const departureDate = document.getElementById('departure-date').value;
   const arrivalDate = document.getElementById('arrival-date').value;
   const destination = document.getElementById('destination').value;
   const days = Client.countdown(arrivalDate);
+
+  //assign each entry a unique number
+  let tripNum;
+  const uniqueIds = document.querySelectorAll('div.card-number');
+  if (uniqueIds.length == 0){
+    tripNum = 0;
+  } else {
+    let idArray = [];
+    for (const id of uniqueIds) {
+      idArray.push(id.innerHTML)
+    }
+    tripNum = Math.max(...idArray);
+  }
+
+  console.log(tripNum)
 
   if (days < 0) {
     alert('Please choose a future arrival date')
