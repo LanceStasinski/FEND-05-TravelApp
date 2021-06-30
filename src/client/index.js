@@ -15,6 +15,7 @@ import { restoreCard } from './js/restore/restoreCard'
 import { updateWeather } from './js/restore/updateWeather'
 import { getDateFromString } from './js/getDateFromString'
 import { restoreHeader } from './js/restore/restoreHeader'
+import { restoreCountryInfo } from './js/restore/restoreCountryInfo'
 
 import './styles/_base.scss'
 import './styles/main.scss'
@@ -44,5 +45,6 @@ export {
   restoreCard,
   updateWeather,
   getDateFromString,
-  restoreHeader
+  restoreHeader,
+  restoreCountryInfo
 }

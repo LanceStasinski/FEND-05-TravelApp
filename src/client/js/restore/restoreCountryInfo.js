@@ -1,4 +1,4 @@
-const createCountryInfoDiv = (data) => {
+const restoreCountryInfo = (data) => {
   const country = document.createElement('div');
   country.classList = 'country';
   country.id = `country-${data.tripNum}`;
@@ -17,27 +17,27 @@ const createCountryInfoDiv = (data) => {
 
   const name = document.createElement('div');
   name.classList = 'country-name';
-  name.innerHTML = `<b>${data.countryName}</b>`;
+  name.innerHTML = data.countryName;
   countryInfo.appendChild(name);
 
   const capital = document.createElement('div');
   capital.classList.add('country-data', 'country-capital');
-  capital.innerHTML = `<b>Capital</b>: ${data.capital}`;
+  capital.innerHTML = data.capital;
   dataSection.appendChild(capital);
 
   const region = document.createElement('div');
   region.classList.add('country-data', 'country-region');
-  region.innerHTML = `<b>Region</b>: ${data.region}`
+  region.innerHTML = data.region;
   dataSection.appendChild(region);
 
   const currency = document.createElement('div');
   currency.classList.add('country-data', 'country-currency');
-  currency.innerHTML = `<b>Currency</b>: ${data.currency}`;
+  currency.innerHTML = data.currency;
   dataSection.appendChild(currency);
 
   const language = document.createElement('div');
   language.classList.add('country-data', 'country-language');
-  language.innerHTML = `<b>Language</b>: ${data.language}`;
+  language.innerHTML = data.language;
   dataSection.appendChild(language);
 
   countryInfo.appendChild(dataSection);
@@ -47,4 +47,4 @@ const createCountryInfoDiv = (data) => {
   return country;
 }
 
-export { createCountryInfoDiv }
+export { restoreCountryInfo }
