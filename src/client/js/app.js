@@ -1,27 +1,25 @@
-if (window.localStorage.length !== 0) {
-  const savedEntries = document.getElementById('entries');
+let tripNum = 0
+window.addEventListener('load', () => {
+  if (window.localStorage.length !== 0) {
+    let trip = JSON.parse(localStorage.getItem(localStorage.key(0)));
+    Client.restoreCard(trip)
+    /*
+    const savedEntries = document.getElementById('entries');
 
-  for (let i = 0; i < window.localStorage.length; i++) {
+    for (let i = 0; i < window.localStorage.length; i++) {
 
-    let trip = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    savedEntries.appendChild(restoreCrard(trip));
+      let trip = JSON.parse(localStorage.getItem(localStorage.key(i)));
+      savedEntries.appendChild(Client.restoreCrard(trip));
+    }
+    const uniqueIds = document.querySelectorAll('div.card-number');
+    let idArray = [];
+    for (const id of uniqueIds) {
+      idArray.push(id.innerHTML)
+    }
+    tripNum = Math.max(...idArray);
+    */
   }
-}
-
-const uniqueIds = document.querySelectorAll('div.card-number');
-
-let tripNum;
-
-if (uniqueIds.length == 0) {
-  tripNum = 0;
-} else {
-  let idArray = [];
-  for (const id of uniqueIds) {
-    idArray.push(id.innerHTML)
-  }
-  tripNum = Math.max(...idArray);
-}
-
+})
 console.log(tripNum)
 
 const addEntry = async () => {

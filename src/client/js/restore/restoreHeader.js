@@ -1,4 +1,4 @@
-const createHeader = (data) => {
+const restoreHeader = (data) => {
   const header = document.createElement('div');
   header.classList = 'card-header';
 
@@ -21,7 +21,6 @@ const createHeader = (data) => {
   title.classList = 'header-title';
   headerText.appendChild(title);
 
-  //get current weather
   const icon = document.createElement('img');
   icon.classList = 'header-icon';
   icon.src = `./src/client/media/weather-icons/${data.current.icon}.png`;
@@ -35,15 +34,14 @@ const createHeader = (data) => {
 
   const arrival = document.createElement('div');
   arrival.classList = 'header-arrival';
-  arrival.innerHTML = data.arrival;
+  arrival.innerHTML = `Arrival: ${data.arrival}`;
   headerText.appendChild(arrival);
 
   const departure = document.createElement('div');
   departure.classList = 'header-departure';
-  departure.innerHTML = data.departure;
+  departure.innerHTML = `Departure: ${data.departure}`;
   headerText.appendChild(departure);
 
-  //need new function here
   const daysAway = document.createElement('div');
   daysAway.classList = 'header-days';
   daysAway.innerHTML = Client.displayDayOrDays(data);
@@ -54,4 +52,4 @@ const createHeader = (data) => {
   return header;
 }
 
-export { createHeader }
+export { restoreHeader }

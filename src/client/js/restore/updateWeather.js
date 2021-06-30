@@ -8,8 +8,8 @@ const updateWeather = async (data) => {
     })
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
-      //add objects to data
+      data.current = response.current;
+      data.forecast = response.forecast;
     })
   } catch (error) {
     console.log("error", error);

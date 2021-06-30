@@ -58,9 +58,9 @@ const createButtons = (data) => {
     const tripCard = document.getElementById(`card-${tripNum}`);
 
     const trip = {
-      arrival: tripCard.getElementsByClassName('header-arrival')[0].innerHTML,
-      departure: tripCard.getElementsByClassName('header-departure')[0].innerHTML,
-      desination: tripCard.getElementsByClassName('header-title')[0].innerHTML,
+      arrival: Client.getDateFromString(tripCard.getElementsByClassName('header-arrival')[0].innerHTML),
+      departure: Client.getDateFromString(tripCard.getElementsByClassName('header-departure')[0].innerHTML),
+      destination: tripCard.getElementsByClassName('header-title')[0].innerHTML,
       imageURL: tripCard.getElementsByClassName('header-image')[0].src,
       imageTag: tripCard.getElementsByClassName('header-image')[0].alt,
       countryName: tripCard.getElementsByClassName('country-name')[0].innerHTML,

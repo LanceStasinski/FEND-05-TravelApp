@@ -11,6 +11,10 @@ import { createCountryInfoDiv } from './js/createCountryInfoDiv'
 import { createHeader } from './js/createHeader'
 import { createButtons } from './js/createButtons'
 import { createMetadata } from './js/createMetadata'
+import { restoreCard } from './js/restore/restoreCard'
+import { updateWeather } from './js/restore/updateWeather'
+import { getDateFromString } from './js/getDateFromString'
+import { restoreHeader } from './js/restore/restoreHeader'
 
 import './styles/_base.scss'
 import './styles/main.scss'
@@ -36,5 +40,9 @@ export {
   createCountryInfoDiv,
   createHeader,
   createButtons,
-  createMetadata
+  createMetadata,
+  restoreCard,
+  updateWeather,
+  getDateFromString,
+  restoreHeader
 }

@@ -3,13 +3,6 @@ const createWeatherDiv = (data) => {
   weatherSection.classList = 'weather-section-forecast';
   weatherSection.id = `weather-${data.tripNum}`;
 
-  /*
-  const weatherHeader = document.createElement('h3');
-  weatherHeader.classList = 'weather-header';
-  weatherHeader.innerHTML = 'Extended Forecast';
-  weatherSection.appendChild(weatherHeader);
-  */
-
   const weatherBoxes = document.createElement('div');
   weatherBoxes.classList = 'weather-boxes';
   const boxes = Client.createForecastArray(data);
