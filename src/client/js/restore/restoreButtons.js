@@ -35,13 +35,10 @@ const restoreButtons = (data) => {
   deleteBtn.id = `delete-${tripNum}`;
   deleteBtn.innerHTML = 'Delete';
   deleteBtn.addEventListener('click', () => {
-    console.log(tripNum)
-    /*
     const entries = document.getElementById('entries');
     const currentEntry = document.getElementById(`card-${tripNum}`);
     entries.removeChild(currentEntry);
     localStorage.removeItem(`card-${tripNum}`);
-    */
   })
   buttonHolder.appendChild(deleteBtn);
 
