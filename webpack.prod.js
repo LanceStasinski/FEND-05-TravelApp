@@ -45,7 +45,9 @@ module.exports = {
       template: './src/client/views/index.html',
       filename: './index.html'
     }),
-    new WorkboxPlugin.GenerateSW(),
+    new WorkboxPlugin.GenerateSW({
+      maximumFileSizeToCacheInBytes: 6000000
+    }),
     new MiniCssExtractPlugin({filename: '[name].css'})
   ]
 }
