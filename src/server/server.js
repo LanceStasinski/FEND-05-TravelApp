@@ -72,10 +72,9 @@ const getData = async (req, res) => {
   res.send(trip);
 }
 
-//POST route
 app.post('/add', getData)
 
-
+//Update weather for saved trips
 const { updateWeatherCurrent } = require('./helpers/updateWeatherCurrent');
 const { updateWeatherForecast } = require('./helpers/updateWeatherForecast');
 

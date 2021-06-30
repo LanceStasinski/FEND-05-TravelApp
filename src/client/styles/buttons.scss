@@ -20,14 +20,23 @@
  font-family: base.$primary-font;
  margin-top: 10px;
  margin-bottom: 10px;
- border: base.$primary-color solid 2pt;
  border-radius: 10px;
  padding-top: 4px;
  padding-bottom: 4px;
+
+ &:hover {
+   transform: scale(1.1);
+ }
+}
+
+.delete {
+  color: base.$primary-color;
+  background-color: #222;
 }
 
 @media only screen and (min-width: 600px) {
   .card-button {
     width: 20%;
+    font-size: 2vmin;
   }
 }
