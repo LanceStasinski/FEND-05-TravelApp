@@ -18,7 +18,7 @@ const createForecastArray = (data) => {
     weatherBox.appendChild(temp);
 
     let icon = document.createElement('img');
-    icon.src = `./src/client/media/weather-icons/${weather.icon}.png`
+    icon.src = `src/client/media/weather-icons/${weather.icon}.png`
     icon.alt = weather.sky;
     icon.classList = 'weather-icon';
     weatherBox.appendChild(icon);

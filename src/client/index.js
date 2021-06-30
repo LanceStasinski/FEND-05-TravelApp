@@ -29,6 +29,17 @@ import './styles/country-info.scss'
 import './styles/weather-forecast.scss'
 import './styles/buttons.scss'
 
+
+const importImages = () => {
+  var req = require.context('./media/weather-icons', false, /.*\.png$/i);
+  req.keys().forEach(function(key){
+    req(key);
+  });
+}
+
+
+const images = importImages()
+
 export {
   addEntry,
   postToServer,

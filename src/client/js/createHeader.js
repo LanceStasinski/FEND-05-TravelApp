@@ -23,7 +23,7 @@ const createHeader = (data) => {
 
   const icon = document.createElement('img');
   icon.classList = 'header-icon';
-  icon.src = `./src/client/media/weather-icons/${data.current.icon}.png`;
+  icon.src = `src/client/media/weather-icons/${data.current.icon}.png`;
   icon.alt = data.current.sky;
   headerText.appendChild(icon);
 
