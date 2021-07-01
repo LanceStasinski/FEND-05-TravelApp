@@ -29,6 +29,7 @@ import './styles/country-info.scss'
 import './styles/weather-forecast.scss'
 import './styles/buttons.scss'
 
+//function to import all images in a folder found at: https://github.com/gatsbyjs/gatsby/issues/3663
 const importImages = () => {
   var req = require.context('./media/weather-icons', false, /.*\.png$/i);
   req.keys().forEach(function(key){
