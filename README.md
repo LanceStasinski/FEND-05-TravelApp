@@ -31,9 +31,9 @@ Once a user enters information and clicks 'Generate', the input information is t
 ### Screen Captures
 
 ![Collapsed-Card](./app_photos/1card_simple.PNG)
+![2cards](./app_photos/2cards.PNG)
 ![Card-fullscreen](./app_photos/card_full.PNG)
 ![Card-expanded](./app_photos/card_expanded.PNG)
-![2cards](./app_photos/2cards.PNG)
 
 ### Challenges
 
