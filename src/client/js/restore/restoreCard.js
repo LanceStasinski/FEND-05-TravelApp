@@ -1,3 +1,5 @@
+//primary restore function that builds a trip from data saved in the local storage.
+//New weather data is incorporated to replace outdated weather forecasts.
 const restoreCard = async (data) => {
 
     await Client.updateWeather(data);

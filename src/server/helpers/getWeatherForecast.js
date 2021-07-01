@@ -1,5 +1,5 @@
 const { getWeatherRoute } = require('../middleware/getWeatherRoute')
-
+//get the extended forecast from weatherbit
 const getWeatherForecast = async (coords, key) => {
   let tripWeather = [];
   let weather = '';

@@ -1,3 +1,5 @@
+//near clone of the createButtons function, but a save button is not included
+//because this trip has already been saved.
 const restoreButtons = (data) => {
   const tripNum = data.tripNum;
   const buttonHolder = document.createElement('div');

@@ -1,3 +1,6 @@
+//This is the main function for the client side.
+
+//Check if trips have been saved, and reconstruct them if they exist.
 window.addEventListener('load', () => {
   if (window.localStorage.length !== 0) {
     for (let i = 0; i < window.localStorage.length; i++) {
@@ -25,6 +28,7 @@ const addEntry = async () => {
     tripNum = Math.max(...idArray);
   }
 
+  //check if the user has entered all necessary information
   if (days < 0) {
     alert('Please choose a future arrival date')
   } else if (departureDate < arrivalDate) {
@@ -35,6 +39,7 @@ const addEntry = async () => {
     alert('Please enter a destination')
   } else {
     tripNum ++;
+    //send data to server is all conditions are met
     const req = {
       arrival: arrivalDate,
       departure: departureDate,

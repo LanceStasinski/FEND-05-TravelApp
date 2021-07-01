@@ -1,3 +1,4 @@
+//create an array of individual divs containing the forecast for 16 days
 const createForecastArray = (data) => {
   let array = [];
   const weatherDays = data.forecast;

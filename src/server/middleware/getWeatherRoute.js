@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 
+//fetch information from weatherbit
 const getWeatherRoute = async (coords, key, forecastType)  => {
   const response = await fetch(`https://api.weatherbit.io/v2.0/${forecastType}?lat=${coords.geonames[0].lat}&lon=${coords.geonames[0].lng}&units=I&key=${key}`);
   try {

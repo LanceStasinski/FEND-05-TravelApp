@@ -1,3 +1,4 @@
+//get the Pixabay image url
 const { getImageUSA } = require('./getImageUSA');
 const { getImageNotUSA } = require('./getImageNotUSA');
 

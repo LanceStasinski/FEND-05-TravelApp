@@ -1,3 +1,4 @@
+//Determine the best string to display considering the number of days away the trip is
 const displayDayOrDays = (data) => {
   let daysAway = data.daysAway;
 

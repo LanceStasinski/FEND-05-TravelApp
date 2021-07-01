@@ -1,3 +1,5 @@
+//post data to server, which then fetches date from the external APIs, and call
+//the createCard function when the response is recieved
 const postToServer = async (data) => {
   try {
     await fetch('http://localhost:3030/add', {

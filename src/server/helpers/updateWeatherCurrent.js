@@ -1,5 +1,5 @@
 const { updateWeatherRoute } = require('../middleware/updateWeatherRoute')
-
+//update the weather for a saved trip
 const updateWeatherCurrent = async (coords, key) => {
   let weather = '';
   let forecastType = `current`;

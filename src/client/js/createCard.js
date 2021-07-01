@@ -1,3 +1,4 @@
+//import several function to build a card for the trip
 const createCard = (data) => {
 
   if (data.message == 'Location not recognized') {

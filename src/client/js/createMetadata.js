@@ -1,3 +1,5 @@
+//add hidden metadata to the card that is used to save the information of each
+//card
 const createMetadata = (data) => {
   const metadata = document.createElement('div');
   metadata.classList = 'metadata';

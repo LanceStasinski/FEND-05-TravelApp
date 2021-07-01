@@ -1,3 +1,4 @@
+//This function posts to the server which then responds with updated weather data.
 const updateWeather = async (data) => {
   try {
     await fetch('http://localhost:3030/update', {

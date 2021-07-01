@@ -1,3 +1,5 @@
+//create a header that displays the image from Pixabay along with the dates of the
+//trip and the current weather
 const createHeader = (data) => {
   const header = document.createElement('div');
   header.classList = 'card-header';

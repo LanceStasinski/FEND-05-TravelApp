@@ -1,3 +1,4 @@
+//construct the country information section
 const createCountryInfoDiv = (data) => {
   const country = document.createElement('div');
   country.classList = 'country';

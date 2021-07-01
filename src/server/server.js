@@ -47,6 +47,7 @@ const getData = async (req, res) => {
     const forecastWeather = await getWeatherForecast(coords, weatherKey);
     const image = await getImage(coords, imageKey);
     const countryInfo = await getCountryInfo(coords);
+    //build data object
     trip = {
       message: 'OK',
       arrival: req.body.arrival,

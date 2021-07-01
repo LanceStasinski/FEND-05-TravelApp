@@ -4,11 +4,8 @@ const fetch = require('node-fetch');
 const getCoords = async (entry, key) => {
   const response = await fetch(`http://api.geonames.org/searchJSON?q=${entry.body.destination}&maxRows=1&username=${key}`);
   try {
-    const location = await response.json()
-    return(location)
-    /*
-    remember to notify user if town doesn't exist
-    */
+    const location = await response.json();
+    return(location);
   } catch (error) {
     console.log("error", error);
   }

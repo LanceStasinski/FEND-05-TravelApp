@@ -1,3 +1,5 @@
+//near clone of createHeader but makes use of some html elements from the saved
+//trip
 const restoreHeader = (data) => {
   const header = document.createElement('div');
   header.classList = 'card-header';

@@ -1,9 +1,11 @@
+//Add functional buttons to each trip card
 const createButtons = (data) => {
   const tripNum = data.tripNum;
   const buttonHolder = document.createElement('div');
   buttonHolder.classList = 'button-holder';
   buttonHolder.id = `btns-${tripNum}`;
 
+  //show and hide the extended forecast
   const forecastBtn = document.createElement('button');
   forecastBtn.classList.add('show-hide', 'card-button', 'show-forecast');
   forecastBtn.innerHTML = 'Forecast';
@@ -17,6 +19,7 @@ const createButtons = (data) => {
   });
   buttonHolder.appendChild(forecastBtn);
 
+  //show and hide the additional country information
   const countryBtn = document.createElement('button');
   countryBtn.classList.add('show-hide', 'card-button', 'show-country');
   countryBtn.innerHTML = 'Info';
@@ -30,6 +33,7 @@ const createButtons = (data) => {
   })
   buttonHolder.appendChild(countryBtn);
 
+  //delete the entry if it has been saved
   const deleteBtn = document.createElement('button');
   deleteBtn.classList.add('card-button', 'delete');
   deleteBtn.id = `delete-${tripNum}`;
@@ -43,6 +47,7 @@ const createButtons = (data) => {
   })
   buttonHolder.appendChild(deleteBtn);
 
+  //save the information in the entry to local storage
   const saveBtn = document.createElement('button');
   saveBtn.classList.add('save', 'card-button');
   saveBtn.id = `save-${tripNum}`

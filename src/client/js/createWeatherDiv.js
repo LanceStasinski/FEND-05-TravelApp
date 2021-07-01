@@ -1,3 +1,5 @@
+//create a section that contains all the individual divs for each day in the
+//forecast
 const createWeatherDiv = (data) => {
   const weatherSection = document.createElement('div');
   weatherSection.classList = 'weather-section-forecast';

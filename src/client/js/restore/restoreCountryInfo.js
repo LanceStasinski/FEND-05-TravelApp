@@ -1,3 +1,5 @@
+//near clone of the createCountryInfoDiv function but uses data that contain
+//html elements pulled from the saved trip.
 const restoreCountryInfo = (data) => {
   const country = document.createElement('div');
   country.classList = 'country';

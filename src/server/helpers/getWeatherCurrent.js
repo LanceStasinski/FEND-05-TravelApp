@@ -1,5 +1,5 @@
 const { getWeatherRoute } = require('../middleware/getWeatherRoute')
-
+//Get the current weather data from weatherbit
 const getWeatherCurrent = async (coords, key) => {
   let weather = '';
   let forecastType = `current`;

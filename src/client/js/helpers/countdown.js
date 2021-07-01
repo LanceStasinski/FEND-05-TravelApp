@@ -1,5 +1,4 @@
 //count days away from current date
-
 const countdown = (startDate) => {
   const today = new Date();
   const start = new Date(startDate);
