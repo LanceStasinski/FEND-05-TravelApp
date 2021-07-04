@@ -52,6 +52,18 @@ npm install
 
 ```
 
+### API Keys
+
+Second, you'll need API keys for Geonames, Weatherbit, and Pixabay. Follow the links in the [Resources](#Resources) section to sign up for free. Next, add a `.env` file to the root of the directory containing the following text using your new keys.
+
+```bash
+
+GEO_USERNAME = <your Geonames username>
+WEATHER_KEY = <your Weatherbit api key>
+PIXABAY_KEY = <your Pixabay api key>
+
+```
+
 ### Start the app
 
 #### Start the server
