@@ -43,7 +43,8 @@ exports.getData = async (req, res) => {
         countryInfo[0].currencies[Object.keys(countryInfo[0].currencies)[0]]
           .name,
       flag: countryInfo[0].flags.png,
-      language: countryInfo[0].languages[Object.keys(countryInfo[0].languages)[0]],
+      language:
+        countryInfo[0].languages[Object.keys(countryInfo[0].languages)[0]],
       region: countryInfo[0].subregion,
       tripNum: req.body.tripNum,
       lat: coords.geonames[0].lat,

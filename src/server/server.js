@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const tripController = require('./controllers/trip-controller')
+const tripController = require("./controllers/trip-controller");
 
 dotenv.config();
 const GEOUSER = process.env.GEO_USERNAME;
@@ -24,7 +24,6 @@ app.use(express.static("dist"));
 app.listen(PORT, () => {
   console.log("Running on localhost: 3030");
 });
-
 
 app.post("/add", tripController.getData);
 

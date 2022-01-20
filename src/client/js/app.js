@@ -1,57 +1,57 @@
 //This is the main function for the client side.
 
 //Check if trips have been saved, and reconstruct them if they exist.
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   if (window.localStorage.length !== 0) {
     for (let i = 0; i < window.localStorage.length; i++) {
       let trip = JSON.parse(localStorage.getItem(localStorage.key(i)));
       Client.restoreCard(trip);
     }
   }
-})
+});
 const addEntry = async () => {
-  const departureDate = document.getElementById('departure-date').value;
-  const arrivalDate = document.getElementById('arrival-date').value;
-  const destination = document.getElementById('destination').value;
+  const departureDate = document.getElementById("departure-date").value;
+  const arrivalDate = document.getElementById("arrival-date").value;
+  const destination = document.getElementById("destination").value;
   const days = Client.countdown(arrivalDate);
 
   //assign each entry a unique number
   let tripNum;
-  const uniqueIds = document.querySelectorAll('div.card-number');
-  if (uniqueIds.length == 0){
+  const uniqueIds = document.querySelectorAll("div.card-number");
+  if (uniqueIds.length == 0) {
     tripNum = 0;
   } else {
     let idArray = [];
     for (const id of uniqueIds) {
-      idArray.push(id.innerHTML)
+      idArray.push(id.innerHTML);
     }
     tripNum = Math.max(...idArray);
   }
 
   //check if the user has entered all necessary information
   if (days < 0) {
-    alert('Please choose a future arrival date')
+    alert("Please choose a future arrival date");
   } else if (departureDate < arrivalDate) {
-    alert('Please choose a departure date that occurs after the arrival date')
-  } else if (departureDate == '' || arrivalDate == '') {
-    alert('Please enter trip dates')
-  } else if (destination == '') {
-    alert('Please enter a destination')
+    alert("Please choose a departure date that occurs after the arrival date");
+  } else if (departureDate == "" || arrivalDate == "") {
+    alert("Please enter trip dates");
+  } else if (destination == "") {
+    alert("Please enter a destination");
   } else {
-    tripNum ++;
+    tripNum++;
     //send data to server is all conditions are met
     const req = {
       arrival: arrivalDate,
       departure: departureDate,
       destination: destination,
       daysAway: days,
-      tripNum: tripNum
-    }
+      tripNum: tripNum,
+    };
     Client.postToServer(req);
   }
-}
+};
 
-const submit = document.getElementById('submit');
-submit.addEventListener('click', addEntry);
+const submit = document.getElementById("submit");
+submit.addEventListener("click", addEntry);
 
-export { addEntry }
+export { addEntry };
