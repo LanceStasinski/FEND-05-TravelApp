@@ -4,6 +4,7 @@ const { getImageRoute } =  require('../middleware/getImageRoute');
 const getImageNotUSA = async (coords, key) => {
   let locationParameters = `${coords.geonames[0].name}+${coords.geonames[0].countryName}`
   const city = await getImageRoute(key, locationParameters);
+  console.log(city)
   let image = '';
   let imageData = [];
   if (city.total == 0) {
