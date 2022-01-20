@@ -1,15 +1,12 @@
 const dotenv = require("dotenv");
-const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const tripController = require("./controllers/trip-controller");
+const updateInfoController = require('./controllers/updateInfo-controller')
 
 dotenv.config();
-const GEOUSER = process.env.GEO_USERNAME;
-const IMAGE_KEY = process.env.PIXABAY_KEY;
-const WEATHER_KEY = process.env.WEATHER_KEY;
 const PORT = process.env.PORT;
 
 const app = express();
@@ -25,25 +22,8 @@ app.listen(PORT, () => {
   console.log("Running on localhost: 3030");
 });
 
+//add trip route
 app.post("/add", tripController.getData);
 
-//Update weather for saved trips
-const { updateWeatherCurrent } = require("./helpers/updateWeatherCurrent");
-const { updateWeatherForecast } = require("./helpers/updateWeatherForecast");
-
-const updateData = async (req, res) => {
-  const coords = {
-    lat: req.body.lat,
-    lng: req.body.lng,
-  };
-  const currentWeather = await updateWeatherCurrent(coords, weatherKey);
-  const forecastWeather = await updateWeatherForecast(coords, weatherKey);
-  let trip = {
-    current: currentWeather,
-    forecast: forecastWeather,
-  };
-  console.log(trip);
-  res.send(trip);
-};
-
-app.post("/update", updateData);
+//Update weather route
+app.post("/update", updateInfoController.updateData);
