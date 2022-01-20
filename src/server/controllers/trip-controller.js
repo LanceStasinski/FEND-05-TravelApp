@@ -26,7 +26,6 @@ exports.getData = async (req, res) => {
     const forecastWeather = await getWeatherForecast(coords, WEATHER_KEY);
     const image = await getImage(coords, IMAGE_KEY);
     const countryInfo = await getCountryInfo(coords);
-    console.log(countryInfo);
     //build data object
     trip = {
       message: "OK",
@@ -40,15 +39,17 @@ exports.getData = async (req, res) => {
       imageTag: image[0],
       countryName: countryInfo[0].name.official,
       capital: countryInfo[0].capital[0],
-      currency: countryInfo[0].currencies[0].name,
-      flag: countryInfo.flag,
-      language: countryInfo.languages[0].name,
-      region: countryInfo.subregion,
+      currency:
+        countryInfo[0].currencies[Object.keys(countryInfo[0].currencies)[0]]
+          .name,
+      flag: countryInfo[0].flags.png,
+      language: countryInfo[0].languages[Object.keys(countryInfo[0].languages)[0]],
+      region: countryInfo[0].subregion,
       tripNum: req.body.tripNum,
       lat: coords.geonames[0].lat,
       lng: coords.geonames[0].lng,
     };
   }
-  console.log(trip);
+  // console.log(trip);
   res.send(trip);
 };
