@@ -16,16 +16,18 @@
  display: inline-block;
  width: 80px;
  background-color: base.$secondary-color;
+ border: none;
  color: black;
  font-family: base.$primary-font;
  margin-top: 10px;
  margin-bottom: 10px;
- border-radius: 10px;
+ border-radius: 6px;
  padding-top: 4px;
  padding-bottom: 4px;
 
  &:hover {
    transform: scale(1.1);
+   cursor: pointer;
  }
 }
 

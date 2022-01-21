@@ -117,6 +117,18 @@
       padding-top: 12.5%;
       font-size: 3vmin;
 
+      .header-title, .header-arrival, .header-departure {
+        text-align: center;
+      }
+
+      .header-arrival, .header-departure {
+        margin-top: 1rem;
+      }
+
+      .header-departure {
+        margin-bottom: 1rem;
+      }
+
       .header-icon, .header-temp{
         padding-right: 0;
       }
