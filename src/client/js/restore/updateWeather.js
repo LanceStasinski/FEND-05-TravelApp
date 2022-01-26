@@ -1,7 +1,9 @@
 //This function posts to the server which then responds with updated weather data.
+const REST_API = process.env.REST_API;
+
 const updateWeather = async (data) => {
   try {
-    await fetch("http://localhost:3030/update", {
+    await fetch(`${REST_API}/update`, {
       method: "POST",
       credentials: "same-origin",
       headers: { "Content-Type": "application/json" },

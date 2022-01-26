@@ -3,7 +3,6 @@
 const restoreCard = async (data) => {
   await Client.updateWeather(data);
   data.daysAway = Client.countdown(data.arrival).toString();
-  console.log(data);
 
   const fragment = document.createDocumentFragment();
   const card = document.createElement("div");
